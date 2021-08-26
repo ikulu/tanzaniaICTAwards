@@ -96,12 +96,12 @@ if ($noww > $_SESSION['expire']) {
             $CATEGORIES = "SELECT * FROM categories";
             $CATEGORIES = $con->query($CATEGORIES);
             if ($CATEGORIES->num_rows > 0) {
-                while($row = $CATEGORIES->fetch_assoc()) {
-                  $Name = $row["name"];
-                  $id = $row["id"];
-                  echo '<option value="'.$id.'">'.$Name.'</option>';
-                }
+              while($row = $CATEGORIES->fetch_assoc()) {
+                $Name = $row["name"];
+                $id = $row["id"];
+                echo '<option value="'.$id.'">'.$Name.'</option>';
               }
+            }
           ?>
           </select>
         </form>

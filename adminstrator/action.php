@@ -118,4 +118,54 @@ if(isset($_GET['moreAnnounce'])){
     echo '</script>';
 }
 
+//Announ ompanis
+if(isset($_GET['moreNominees'])){
+    $id = $_REQUEST['more'];
+	header("Location: ./adminPages/nominatorslistDetails.php?id=$id");
+}
+
+//View individual category
+if(isset($_GET['moreCategory'])){
+    $id = $_REQUEST['more'];
+	header("Location: ./adminPages/categoryDetails.php?id=$id");
+}
+
+// Save users
+if(isset($_POST['saveUser'])){
+    $name = trim($_POST['name']);
+    $phone = trim($_POST['phone']);
+    $email = trim($_POST['email']);
+    $password = "ictAwards2021";
+
+    $sqll = "INSERT INTO admins (name,phone,email,password) VALUES ('$name','$phone','$email','$password')";
+    if ($con->query($sqll) === TRUE) {
+        echo '<script language="javascript">';
+        echo 'alert("User registered successful!");location.href="./adminPages/users.php";';
+        echo '</script>';
+    } else {
+        echo '<script language="javascript">';
+        echo 'alert("Sever is temporal Offline, Please comeback later!");location.href="./adminPages/users.php";';
+        echo '</script>';
+    }
+}
+
+// Save users
+if(isset($_POST['changeUserPassword'])){
+    $passNew = trim($_POST['pnew']);
+    $passOld = trim($_POST['pold']);
+    $id = $_SESSION['USERID'];
+    // $password = "ictAwards2021";
+    
+    $qry = "UPDATE admins SET password = '$passNew' WHERE id = '$id'";
+    if ($con->query($qry) === TRUE) {
+        echo '<script language="javascript">';
+        echo 'alert("Password updated successful!");location.href="./adminPages/admnHome.php";';
+        echo '</script>';
+    } else {
+        echo '<script language="javascript">';
+        echo 'alert("Sever is temporal Offline, Please comeback later!");location.href="./adminPages/admnHome.php";';
+        echo '</script>';
+    }
+}
+
 ?>

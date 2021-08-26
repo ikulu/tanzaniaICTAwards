@@ -38,7 +38,7 @@ $url1 = '../action.php?moreConfirm=0';
 $forLink = 0;
 
     $q = $_GET['q'];
-    $sql="SELECT DISTINCT(wapendekezanawapendekezwa.pendekezwaID),wapendekezwa.companyName,wapendekezanawapendekezwa.id,wapendekezanawapendekezwa.status FROM wapendekezanawapendekezwa,wapendekezwa WHERE wapendekezwa.id = wapendekezanawapendekezwa.pendekezwaID AND wapendekezanawapendekezwa.categoriesFK = '$q'";
+    $sql="SELECT DISTINCT(wapendekezanawapendekezwa.pendekezwaID),wapendekezwa.companyName,wapendekezanawapendekezwa.pendekezwaID,wapendekezanawapendekezwa.id,wapendekezanawapendekezwa.status FROM wapendekezanawapendekezwa,wapendekezwa WHERE wapendekezwa.id = wapendekezanawapendekezwa.pendekezwaID AND wapendekezanawapendekezwa.categoriesFK = '$q'";
     
     $result = mysqli_query($con,$sql);
     
@@ -60,9 +60,9 @@ $forLink = 0;
     if ($result->num_rows > 0) {
       echo '<tr>
       <th>No</th>
-      <th>Company Name</th>
-      <th></th>
-      <th>Confirm and Notify</th>
+      <th>Company/Institution/Individual</th>
+      <th>Details</th>
+      <th>Confirm</th>
     </tr>';
     }
     echo "
@@ -73,10 +73,11 @@ $forLink = 0;
     
     if ($result->num_rows > 0) {
       while($row = mysqli_fetch_array($result)) {
+        $IDID = $row["pendekezwaID"];
         $forLink = $row["id"];
         $url = add_or_update_params($url1,'more',$forLink);
         $link = 'href="'.$url.'"';
-        $button = 'href="./getdata.php?x=5" class="btn btn-success" type="button" data-toggle="modal" data-target="#myModal"';
+        $button = "href='./norminatedPerCategoryDetails.php?id=$IDID' class='btn btn-success'";
         $status = $row["status"];
         if($status == 'confirmed' || $status == 'Approved'|| $status == 'Announced'){
           $class = 'class="btn btn-danger" type="button" style="pointer-events: none;
@@ -110,7 +111,10 @@ $forLink = 0;
         </div>    
         <!-- Modal body -->
         <div class="modal-body">
-          dtails..
+          <?php 
+          $x = $_GET['x'];
+          echo $x;
+          ?>
         </div>
         
         <!-- Modal footer -->

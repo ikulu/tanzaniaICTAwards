@@ -155,6 +155,26 @@ if ($noww > $_SESSION['expire']) {
               <a href="../adminPages/announcedlist.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+           <!-- ./col -->
+           <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+               <?php 
+                  $sql2 = "SELECT * FROM wapendekeza";
+                  $total_Acompanies = mysqli_query($con,$sql2);
+                  $total_Acompanies = mysqli_num_rows($total_Acompanies);
+                ?> 
+                <h3><?php 
+                echo $total_Acompanies ?></h3>
+                <p>Nominators</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="../adminPages/nominatorlist.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
         </div>
         </div>
         <!-- /.row -->

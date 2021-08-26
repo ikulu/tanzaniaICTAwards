@@ -1,5 +1,6 @@
 <?php
 require '../action.php';
+
 if (!isset($_SESSION['loggedin'])) {
 	header('Location: ../index.php');
 	exit;
@@ -10,7 +11,7 @@ if ($noww > $_SESSION['expire']) {
     session_destroy();
     header('Location: ../index.php');
 }
-    
+
     require '../../components/adminAside.php';
     require '../../components/adminNavbar.php';
     require '../../components/adminFooter.php';
@@ -20,7 +21,7 @@ if ($noww > $_SESSION['expire']) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tanzania ICT Awards | Companies</title>
+  <title>Tanzania ICT Awards | Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -31,10 +32,10 @@ if ($noww > $_SESSION['expire']) {
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
 
-  
-<!-- ata table -->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+  <!-- ata table -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -58,16 +59,15 @@ if ($noww > $_SESSION['expire']) {
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Companies</h1>
+            <h1 class="m-0">Users</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="./admnHome.php">Home</a></li>
-              <li class="breadcrumb-item active">Companies</li>
+              <li class="breadcrumb-item"><a href="#">Users</a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
-        <!-- <a style="cursor:pointer" id="myBtn" class="nav-link">New Company</a> -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -75,49 +75,52 @@ if ($noww > $_SESSION['expire']) {
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-      <div class="card-body table-responsive p-0">
-      <a href="../nominated_pdf.php" style="color:white; font-size:15px"><i style="color:white; font-size:15px" class="fas fa-print"></i> PRINT</a></br>
-              <table id="table_id" class="display table table-hover text-nowrap">
-                <thead style='color:white'>
-                <?php 
-                  $results = mysqli_query($con, "SELECT wapendekezwa.companyName,categories.name From categories,wapendekezanawapendekezwa,wapendekezwa WHERE categories.id = wapendekezanawapendekezwa.categoriesFK AND wapendekezwa.id = wapendekezanawapendekezwa.pendekezwaID");
-                  
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
+  New User
+</button>
+<br><br>
+        <div class="row"> 
+          <div class="col card-body table-responsive p-0">
+          <table id="table_id" class="display table table-striped table-bordered dt-responsive  text-align">
+                <thead style="color:white">
+                  <?php 
+                  $sql = "SELECT * FROM admins";
+                  $drop = "<select id='change'>
+                  <option value=''>Select</option>
+                  <option value='this'>Update</option>
+                  <option value='that'>Disable</option>
+                </select>";
+                  $results = $con->query($sql);
                     if ($results->num_rows > 0) {
                       echo '<tr>
-                      <th>No</th>
-                      <th>Full Name</th>
-                      <th>Category</th>
-                      </tr>';
+                      <th>SN</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Action</th>
+                    </tr>';
                     }
                   ?>
                 </thead>
-                <tbody style='color:black'>
-                <?php 
+                <tbody style="color:black">
+                  <?php 
                     $NO = 1;
-                    $more = "<select>
-                    <option>Select</option>
-                    <option>Update</option>
-                    <option>Delete</option>
-                    <option>Disable</option>
-                    </select>"; 
                     if ($results->num_rows > 0) {
-                      while($data = mysqli_fetch_array($results)){
-                        echo "<tr><td>" . $NO. "</td><td>". $data['companyName']."</td><td>". $data['name']."</td>";
+                      while($row = $results->fetch_assoc()) {
+                        $name=$row["name"];
+                        $email=$row["email"];
+                        echo "<tr><td>" . $NO. "</td><td>". $name."</td><td><a>$email</a></td><td><a>$drop</a></td>";
                         $NO++;
                       }
                     } else {
-                      echo "<tr><td>No Company nominated</td></tr>";
+                      echo "<tr><td>No Records</td></tr>";
                     }
                   ?>
                   </tr>
                 </tbody>
               </table>
-              
-            <!-- /.card-body -->
           </div>
+        </div>
       </div><!--/. container-fluid -->
-
-    
     </section>
     <!-- /.content -->
   </div>
@@ -130,9 +133,56 @@ if ($noww > $_SESSION['expire']) {
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
-  <?php echo $adminFooter;?>
+ <?php echo $adminFooter;?>
 </div>
 <!-- ./wrapper -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Register User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="../action.php" method="POST" class="mx-1 mx-md-4">
+          <div class="d-flex flex-row align-items-center mb-4">
+            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+            <div class="form-outline flex-fill mb-0">
+              <input type="text" name="name" id="form3Example1c" class="form-control" required/>
+              <label class="form-label" for="form3Example1c">Full Name</label>
+            </div>
+          </div>
+
+          <div class="d-flex flex-row align-items-center mb-4">
+            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+            <div class="form-outline flex-fill mb-0">
+              <input type="email" name="email" id="form3Example3c" class="form-control" required/>
+              <label class="form-label" for="form3Example3c">Email Address</label>
+            </div>
+          </div>
+
+          <div class="d-flex flex-row align-items-center mb-4">
+            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+            <div class="form-outline">
+              <input type="tel" name="phone" id="phoneNumber" class="form-control" required/>
+              <label class="form-label" for="phoneNumber">Phone Number</label>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+            <button type="submit" name="saveUser" class="btn btn-primary btn-lg">Register</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
@@ -158,34 +208,6 @@ if ($noww > $_SESSION['expire']) {
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../dist/js/pages/dashboard2.js"></script>
 
-<script>
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
-
 <!-- sript for ata table -->
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 
@@ -201,10 +223,11 @@ $(document).ready( function () {
       responsive: true,
         language: {
           search: "_INPUT_",
-          searchPlaceholder: "Search company",
+          searchPlaceholder: "Search category",
         }
     });
 } );
 </script>
+
 </body>
 </html>

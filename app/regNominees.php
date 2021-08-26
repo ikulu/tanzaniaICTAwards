@@ -605,9 +605,11 @@ function phoneFormat(input){
                                 <div class="row">
                                     <div class="col">
                                         <h4 style="font-weight:bold">BEST ICT INNOVATION AWARDS</h4>
+                                        <h5 style="font-weight:bold">TUZO YA UBUNIFU TEHAMA BORA</h5>
                                         <div class="row">
                                             <div class="col">
                                                 <h5><a href="#btn1" id="btn1">Best ICT Incubation hub</a></h5>
+                                                <h6><a style="text-decoration: none;">Atamizi ya TEHAMA</a></h6><hr/>
                                                 <div id="1">
                                                     <p>This award recognises Incubators that have played a
 pivotal role in the tech and business eco-system by
@@ -640,6 +642,7 @@ connections into academic environments.</p>
                                             </div>
                                             <div class="col">
                                             <h5><a href="#btn2" id="btn2">Best ICT Startup</a></h5>
+                                            <h6><a style="text-decoration: none;">Biashara changa ya TEHAMA</a></h6><hr/>
                                             <div id="2">
                                                 <p>This award recognises the outstanding local ICT
 startup companies focusing on software, hardware
@@ -677,6 +680,7 @@ and performance.</p>
                                         <div class="row">
                                             <div class="col">
                                                 <h5><a id="btn3"href="#btn3">Best Innovative ICT Student (Female)</a></h5>
+                                                <h6><a style="text-decoration: none;">Mwanafunzi mbunifu wa TEHAMA wa kike</a></h6><hr/>
                                                 <div id="3">
                                                 <p>This award is given in recognition of a Higher
 Learning Institution female student who is
@@ -710,6 +714,7 @@ commitment and talent in the ICT field.</p>
                                             
                                             <div class="col">
                                             <h5><a id="btn4" href="#btn4">Best Innovative ICT Student (Male)</a></h5>
+                                            <h6><a style="text-decoration: none;">Mwanafunzi mbunifu wa TEHAMA wa kiume</a></h6><hr/>
                                             <div id="4">
                                             <p>This award is given in recognition of a Higher
 Learning Institution male student who is developing
@@ -750,7 +755,8 @@ commitment and talent in the ICT field.</p>
                                 
                                 <br>
                                 <div class="row">
-                                <h4><a id="btn5" href="#btn5">BEST MOBILE NETWORK OPERATOR</a></h4>
+                                <h5><a id="btn5" href="#btn5">BEST MOBILE NETWORK OPERATOR</a></h5>
+                                <h6><a style="text-decoration: none;">Kampuni ya mawasiliano iliyotoa huduma bora kwa jamii (CSR)</a></h6>
                                 <div class="col">
                                     <div id="5">
                                     <p>These are mobile network companies that continually
@@ -787,8 +793,8 @@ played big role in Corporate Social Responsibilities
 
                                 <br>
                                 <div class="row">
-                                    <h4><a id="btn6"href="#btn6">BEST COMPANY PROVIDING SERVICES
-ON IT</a></h4>
+                                    <h5><a id="btn6"href="#btn6">BEST COMPANY PROVIDING SERVICES ON IT</a></h5>
+                                    <h6><a style="text-decoration: none;">Kampuni inayotoa huduma za TEHAMA (outsource) bora</a></h6>
                                     <div class="col">
                                     <div id="6">
                                     <p>This award is for outsourcing IT service providers
@@ -826,8 +832,8 @@ to information and business processes.</p>
 
                                 <br>
                                 <div class="row">
-                                <h4><a id="btn7" href="#btn7">BEST COMPANY IN SOFTWARE
-DEVELOPMENT</a></h4>
+                                <h5><a id="btn7" href="#btn7">BEST COMPANY IN SOFTWARE DEVELOPMENT</a></h5>
+                                <h6><a style="text-decoration: none;">Kampuni bora katika kutengeneza mifumo laini ya TEHAMA</a></h6>
                                 <div class="col">
                                     <div id="7">
                                         <p>These are Local software development companies
@@ -863,8 +869,8 @@ local challenges.</p>
 
                                 <br>
                                 <div class="row">
-                                <h4><a id="btn8" href="#btn8">BEST ICT TRANSFORMATIVE TRAINING
-INSTITUTION</a></h4>
+                                <h5><a id="btn8" href="#btn8">BEST ICT TRANSFORMATIVE TRAINING INSTITUTION</a></h5>
+                                <h6><a style="text-decoration: none;">Taasisi ya mafunzo bora kwenye kutumia TEHAMA</a></h6>
                                     <div class="col">
                                         <div id="8">
                                         <p>This Award recognizes achievements of Schools and
@@ -902,8 +908,8 @@ education as an effective tool for learning service.</p>
 
                                 <br>
                                 <div class="row">
-                                <h4><a id="btn9" href="#btn9">BEST ICT TRANSFORMATIVE INSTITUTION
-IN PROVISION OF HEALTH SERVICES</a></h4>
+                                <h5><a id="btn9" href="#btn9">BEST ICT TRANSFORMATIVE INSTITUTION IN PROVISION OF HEALTH SERVICES</a></h5>
+                                <h6><a style="text-decoration: none;">Taasisi ya mabadiliko TEHAMA bora katika utoaji wa huduma za afya</a></h6>
                                 <div class="col">
                                         <div id="9">
                                         <p>These are health facilities that have adapted to
@@ -940,8 +946,8 @@ services.</p>
 
                                 <br>
                                 <div class="row">
-                                <h4><a id="btn10" href="#btn10">BEST ICT INSTITUTION PROVIDING
-SERVICES IN FINANCIAL SECTOR</a></h4>
+                                <h4><a id="btn10" href="#btn10">BEST FINANCIAL INSTITUTION IN USING ICT</a></h5>
+                                <h6><a style="text-decoration: none;">Taasisi ya kifedha bora katika kutumia TEHAMA</a></h6>
                                     <div class="col">
                                         <div id="10">
                                         <p>This award will go to the most innovative and agile
@@ -977,7 +983,8 @@ financial sector.</p>
 
                                 <br>
                                 <div class="row">
-                                <h4><a id="btn16" href="#btn16">BEST FINANCIAL TECHNOLOGY COMPANY AWARD</a></h4>
+                                <h5><a id="btn16" href="#btn16">BEST FINANCIAL TECHNOLOGY COMPANY AWARD</a></h5>
+                                <h6><a style="text-decoration: none;">Kampuni bora ya Teknolojia (TEHAMA) ya fedha</a></h6>
                                     <div class="col">
                                         <div id="16">
                                         <p>This award will go to the most innovative and agile
@@ -1014,8 +1021,10 @@ financial sector.</p>
                                 <br>
                                 <div class="row">
                                 <h4>BEST ICT RESEARCHER AWARDS</h4>
+                                <h5 style="font-weight:bold">MTAFITI BORA WA TEHAMA</h5>
                                     <div class="col">
                                     <h5><a id="btn11" href="#btn11">Best Female ICT researcher</a></h5>
+                                    <h6><a style="text-decoration: none;">Mtafiti TEHAMA wa kike bora</a></h6><hr/>
                                         <div id="11">
                                         <p>This award recognises female individuals whose
 research works has contributed to develop or
@@ -1047,6 +1056,7 @@ promote the ICT sector in Tanzania.</p>
                                     </div>
                                     <div class="col">
                                     <h5><a id="btn12" href="#btn12">Best Male ICT researcher</a></h5>
+                                    <h6><a style="text-decoration: none;">Mtafit TEHAMA wa kiume bora</a></h6><hr/>
                                         <div id="12">
                                         <p>This award recognises male individuals who have
 research contributions in terms of development or
@@ -1081,8 +1091,8 @@ promotion of ICT in Tanzania.</p>
 
                                 <br>
                                 <div class="row">
-                                <h4><a id="btn13" href="#btn13">BEST COMPANY IN DIGITAL INSURANCE
-SERVICES</a></h4>
+                                <h5><a id="btn13" href="#btn13">BEST COMPANY IN DIGITAL INSURANCE SERVICES</a></h5>
+                                <h6><a style="text-decoration: none;">Kampuni bora katika huduma za bima kidijitali</a></h6>
                                     <div class="col">
                                         <div id="13">
                                         <p>This award is given to the insurance organization that
@@ -1119,7 +1129,8 @@ client experience.</p>
 
                                 <br>
                                 <div class="row">
-                                <h4><a id="btn14" href="#btn14">BEST LGA IN USING ICT APPLICATIONS</a></h4>
+                                <h5><a id="btn14" href="#btn14">BEST LGA IN USING ICT APPLICATIONS</a></h5>
+                                <h6><a style="text-decoration: none;">Halmashauri bora inayotumia TEHAMA kutoa huduma kwa jamii</a></h6>
                                 <div class="col">
                                         <div id="14">
                                         <p>These are Local Government Authorities that are
@@ -1153,7 +1164,8 @@ convenience, efficiency and productivity.</p>
                                 <hr style="color:#f4623a"/>
                                 <br>
                                 <div class="row">
-                                <h4><a id="btn15" href="#btn15">BEST ICT SOLUTION IN AGRICULTURE</a></h4>
+                                <h5><a id="btn15" href="#btn15">BEST ICT SOLUTION IN AGRICULTURE</a></h5>
+                                <h6><a style="text-decoration: none;">Mfumo wa TEHAMA bora katika kilimo</a></h6>
                                 <div class="col">
                                         <div id="15">
                                         <p>This award recognises local innovators who are

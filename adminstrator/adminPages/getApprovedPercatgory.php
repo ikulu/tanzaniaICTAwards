@@ -34,7 +34,7 @@ $more = "Approve";
 $forLink = 0;
 
     $q = $_GET['q'];
-    $sql = "SELECT wapendekezwa.companyName,wapendekezanawapendekezwa.id,wapendekezanawapendekezwa.status FROM wapendekezwa INNER JOIN wapendekezanawapendekezwa ON wapendekezwa.id=wapendekezanawapendekezwa.pendekezwaID WHERE wapendekezanawapendekezwa.categoriesFK = '$q' AND wapendekezanawapendekezwa.status IN('Approved','Announced')";
+    $sql = "SELECT wapendekezwa.companyName,wapendekezanawapendekezwa.id,wapendekezanawapendekezwa.pendekezwaID,wapendekezanawapendekezwa.status FROM wapendekezwa INNER JOIN wapendekezanawapendekezwa ON wapendekezwa.id=wapendekezanawapendekezwa.pendekezwaID WHERE wapendekezanawapendekezwa.categoriesFK = '$q' AND wapendekezanawapendekezwa.status IN('Approved','Announced')";
     
     $result = mysqli_query($con,$sql);
     
@@ -55,8 +55,9 @@ $forLink = 0;
     if ($result->num_rows > 0) {
       echo '<tr>
       <th>No</th>
-      <th>Company Name</th>
-      <th>Approve Companies</th>
+      <th>Company/Institution/Individual</th>
+      <th>Details</th>
+      <th>Announce</th>
       <th>'.$num.'</th>
     </tr>';
     }
@@ -69,8 +70,10 @@ $forLink = 0;
     if ($result->num_rows > 0) {
       while($row = mysqli_fetch_array($result)) {
         $forLink = $row["id"];
+        $IDID = $row["pendekezwaID"];
         $url = add_or_update_params($url1,'more',$forLink);
         $link = 'href="'.$url.'"';
+        $button = "href='./norminatedPerCategoryDetails.php?id=$IDID' class='btn btn-success'";
         $status = $row["status"];
         if($status == 'Announced'){
           $class = 'class="btn btn-danger" type="button" style="pointer-events: none;
@@ -80,7 +83,7 @@ $forLink = 0;
           $more = "Announce";
           $class = 'class="btn btn-primary"type="button"';
         }
-        echo "<tr><td>" . $NO. "</td><td>". $row["companyName"]."</td><td><a $link $class>$more</a></td><td>";
+        echo "<tr><td>" . $NO. "</td><td>". $row["companyName"]."</td><td><a $button>View <i class='fa fa-eye' aria-hidden='true'></i></a>"."</td><td><a $link $class>$more</a></td><td>";
         $NO++;
       }
     }else{

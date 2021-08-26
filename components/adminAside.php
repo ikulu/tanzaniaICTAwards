@@ -23,7 +23,7 @@ $aside = '  <!-- Main Sidebar Container -->
         <img src="../dist/img/p.jpeg" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a class="nav-link" href="#" class="d-block">'.$g. $x. '</a>
+        <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter" href="#" class="d-block">'.$g. $x. '</a>
         <a href="../action.php?out_admin='.$true.'" class="d-block">Log Out</a>
       </div>
     </div>
@@ -75,6 +75,29 @@ $aside = '  <!-- Main Sidebar Container -->
             <p>Announced Companies</p>
           </a>
         </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Tools
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+              <a href="../adminPages/users.php" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Users</p>
+              </a>
+            </li>
+            <li class="nav-item">
+                <a href="../adminPages/categories.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Categories</p>
+                </a>
+              </li>
+            </ul>
+          </li
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
@@ -83,6 +106,43 @@ $aside = '  <!-- Main Sidebar Container -->
 </aside>';
 ?>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">PROFILE</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="../action.php" method="POST" class="mx-1 mx-md-4">
+          <div class="d-flex flex-row align-items-center mb-4">
+            <div class="form-outline flex-fill mb-0">
+              <input type="password" name="pold" id="form3Example1c" class="form-control" required/>
+              <label class="form-label" for="form3Example1c">Old Password</label>
+            </div>
+          </div>
+
+          <div class="d-flex flex-row align-items-center mb-4">
+            <div class="form-outline flex-fill mb-0">
+              <input type="password" name="pnew" id="form3Example3c" class="form-control" required/>
+              <label class="form-label" for="form3Example3c">New Password</label>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+            <button type="submit" name="changeUserPassword" class="btn btn-primary btn-lg">Change</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
         <!--li class="nav-item">
           <a href="../report/" class="nav-link">
@@ -99,12 +159,6 @@ $aside = '  <!-- Main Sidebar Container -->
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../adminPages/categories.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Categories</p>
-                </a>
-              </li>
               <li class="nav-item">
                 <a href="../adminPages/awards.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

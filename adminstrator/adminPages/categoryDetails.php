@@ -10,7 +10,7 @@ if ($noww > $_SESSION['expire']) {
     session_destroy();
     header('Location: ../index.php');
 }
-    
+
     require '../../components/adminAside.php';
     require '../../components/adminNavbar.php';
     require '../../components/adminFooter.php';
@@ -20,7 +20,7 @@ if ($noww > $_SESSION['expire']) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tanzania ICT Awards | Companies</title>
+  <title>Tanzania ICT Awards | Nominator List</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -31,11 +31,11 @@ if ($noww > $_SESSION['expire']) {
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
 
-  
-<!-- ata table -->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
-</head>
+  <!-- ata table -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+
+  </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
 
@@ -58,66 +58,74 @@ if ($noww > $_SESSION['expire']) {
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Companies</h1>
+            <h1 class="m-0">Categories</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="./admnHome.php">Home</a></li>
-              <li class="breadcrumb-item active">Companies</li>
+              <li class="breadcrumb-item"><a href="../adminPages/admnHome.php">Home</a></li>
+              <li class="breadcrumb-item active">Categories</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
-        <!-- <a style="cursor:pointer" id="myBtn" class="nav-link">New Company</a> -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
       <div class="card-body table-responsive p-0">
-      <a href="../nominated_pdf.php" style="color:white; font-size:15px"><i style="color:white; font-size:15px" class="fas fa-print"></i> PRINT</a></br>
+      <a href="../report/announce_pdf.php" style="color:white; font-size:15px"><i style="color:white; font-size:15px" class="fas fa-print"></i> PRINT</a></br>
               <table id="table_id" class="display table table-hover text-nowrap">
                 <thead style='color:white'>
-                <?php 
-                  $results = mysqli_query($con, "SELECT wapendekezwa.companyName,categories.name From categories,wapendekezanawapendekezwa,wapendekezwa WHERE categories.id = wapendekezanawapendekezwa.categoriesFK AND wapendekezwa.id = wapendekezanawapendekezwa.pendekezwaID");
-                  
-                    if ($results->num_rows > 0) {
-                      echo '<tr>
-                      <th>No</th>
-                      <th>Full Name</th>
-                      <th>Category</th>
-                      </tr>';
+                  <?php 
+                  $id = $_GET['id'];
+                  $nomineeDetails = "SELECT categories.name,wapendekezwa.companyName FROM wapendekezanawapendekezwa,categories,wapendekezwa WHERE wapendekezwa.id = wapendekezanawapendekezwa.pendekezwaID AND categories.id = wapendekezanawapendekezwa.categoriesFK AND pendekezaID = '$id'";
+                  $nomineeDetails = $con->query($nomineeDetails);
+
+                    if ($nomineeDetails->num_rows > 0) {
+                        echo '<thead>
+                        <tr>
+                          <th class="th-sm">NO
+                    
+                          </th>
+                          <th class="th-sm">Category
+                    
+                          </th>
+                          <th class="th-sm">Company/Institution/Individual
+                    
+                          </th>
+                        </tr>
+                      </thead>
+                        ';
                     }
                   ?>
                 </thead>
                 <tbody style='color:black'>
-                <?php 
-                    $NO = 1;
-                    $more = "<select>
-                    <option>Select</option>
-                    <option>Update</option>
-                    <option>Delete</option>
-                    <option>Disable</option>
-                    </select>"; 
-                    if ($results->num_rows > 0) {
-                      while($data = mysqli_fetch_array($results)){
-                        echo "<tr><td>" . $NO. "</td><td>". $data['companyName']."</td><td>". $data['name']."</td>";
-                        $NO++;
+                  <?php 
+                    $no = 1;
+                    if ($nomineeDetails->num_rows > 0) {
+                      while($row = $nomineeDetails->fetch_assoc()) {
+                        $category = "{$row['name']}";
+                        $pendekezwa = "{$row['companyName']}";				
+                        echo "<tr>
+                        <td>$no</td>
+                        <td>$category</td>
+                        <td>$pendekezwa</td>
+                        </tr>
+                        ";
+                        $no++;
                       }
                     } else {
-                      echo "<tr><td>No Company nominated</td></tr>";
+                      echo "<tr><td>No Nominators Yet</td></tr>";
                     }
                   ?>
                   </tr>
                 </tbody>
               </table>
-              
+
             <!-- /.card-body -->
           </div>
       </div><!--/. container-fluid -->
-
-    
     </section>
     <!-- /.content -->
   </div>
@@ -157,34 +165,6 @@ if ($noww > $_SESSION['expire']) {
 <script src="../dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../dist/js/pages/dashboard2.js"></script>
-
-<script>
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
 
 <!-- sript for ata table -->
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>

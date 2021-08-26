@@ -16,7 +16,7 @@
       <!-- Navbar Search -->
       <li class="nav-item">
         <a class="nav-link" href="admnHome.php">
-        <h4 style="color: gold">Tanzania IcT Awards Nomination System</h4> 
+        <h4 style="color: gold">Tanzania ICT Awards Nomination System</h4> 
         </a>
       </li>
     </ul>

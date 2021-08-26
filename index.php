@@ -110,7 +110,7 @@ celebration of Technology in the year.
                             <tr>
                             <td><span style="font-weight:bold; color:#f4623a">STAGE ONE</span></td>
                             <td>Nominations</td>
-                            <td>24<sup>th</sup> August- 10<sup>th</sup> September</td>
+                            <td>24<sup>th</sup> August- 11<sup>th</sup> September</td>
                             </tr>
                             <tr>
                             <td><span style="font-weight:bold; color:#f4623a">STAGE TWO</span</td>
@@ -174,7 +174,7 @@ celebration of Technology in the year.
 
         <script>
             // Set the date we're counting down to
-            var countDownDate = new Date("Oct 20, 2021 00:00:00").getTime();
+            var countDownDate = new Date("Sept 11, 2021 00:00:00").getTime();
             
             // Update the count down every 1 second
             var x = setInterval(function() {

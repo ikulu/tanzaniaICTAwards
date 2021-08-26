@@ -122,7 +122,7 @@ try {
         $sql = "INSERT INTO tmp (codes) VALUES ('$codes')";
         $con->query($sql);
         echo '<script language="javascript">';
-        echo 'alert("Email has been sent");location.href="./regNominees.php";';
+        echo 'alert("Email with Verification code has been sent");location.href="./regNominees.php";';
         echo '</script>';
 	 }
 	 catch (Exception $e)
