@@ -1,3 +1,4 @@
+<?php echo $_GET['id']; ?>
 <?php
 require '../action.php';
 if (!isset($_SESSION['loggedin'])) {
@@ -20,7 +21,7 @@ if ($noww > $_SESSION['expire']) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tanzania ICT Awards | Nominator List</title>
+  <title>Tanzania ICT Awards | Categories</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -58,12 +59,12 @@ if ($noww > $_SESSION['expire']) {
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Nominators</h1>
+            <h1 class="m-0">Category</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="../adminPages/admnHome.php">Home</a></li>
-              <li class="breadcrumb-item active">Nominators</li>
+              <li class="breadcrumb-item active">Category</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -92,69 +93,52 @@ if ($noww > $_SESSION['expire']) {
         return $result;
       }
 
-      $url1 = '../action.php?moreNominatorDelete=0';
+      $url1 = '../action.php?moreCategoryUpdate=0';
       $forLink = $_GET['id'];
       $url = add_or_update_params($url1,'more',$forLink);
-      $link = 'href="'.$url.'"';
+      $link = 'name="moreCategoryUpdate" type="submit"';
       
-      $style = "style='color:white; font-size:15px'";
-      echo "<a $style $link><i  class='far fa-trash-alt'></i> DELETE</a></br>";
+      $style = "style='color:black; font-size:15px'";
       ?>
       
       <table id="table_id" class="display table table-hover text-nowrap">
         <thead style='color:white'>
           <?php 
           $id = $_GET['id'];
-          $nomineeDetails = "SELECT categories.name,wapendekezwa.id,wapendekezwa.companyName FROM wapendekezanawapendekezwa,categories,wapendekezwa WHERE wapendekezwa.id = wapendekezanawapendekezwa.pendekezwaID AND categories.id = wapendekezanawapendekezwa.categoriesFK AND pendekezaID = '$id'";
-          $nomineeDetails = $con->query($nomineeDetails);
+          $usersDetails = "SELECT * FROM categories WHERE id = '$id'";
+          $usersDetails = $con->query($usersDetails);
 
-            if ($nomineeDetails->num_rows > 0) {
+            if ($usersDetails->num_rows > 0) {
                 echo '<thead>
                 <tr>
-                  <th class="th-sm">NO
-            
-                  </th>
-                  <th class="th-sm">Category
-            
-                  </th>
-                  <th class="th-sm">Company/Institution/Individual
-            
-                  </th>
+                  <th class="th-sm">Category Name</th>
                 </tr>
               </thead>
                 ';
             }
+            $action = "action='../action.php?id=$id'"; 
           ?>
         </thead>
         <tbody style='color:black'>
+        <?php echo "<form $action method='post'>"?>
           <?php 
             $no = 1;
-            if ($nomineeDetails->num_rows > 0) {
-              while($row = $nomineeDetails->fetch_assoc()) {
-                $category = "{$row['name']}";
-                $pendekezwa = "{$row['companyName']}";				
-                $forLink = json_encode("{$row['id']}");
-
-                echo "<tr>
-                <td>$no</td>
-                <td>$category</td>
-                <td>$pendekezwa</td>
-                </tr>
-                ";
-                $no++;
+            if ($usersDetails->num_rows > 0) {
+              while($row = $usersDetails->fetch_assoc()) {
+                echo "<tr><td><input type='text' name='categoryN' value='{$row['name']}'></td><td><button $style $link>UPDATE</button></td></tr>";
               }
               $url = add_or_update_params($url1,'more',$forLink);
             } else {
-              echo "<tr><td>No Nominators Yet</td></tr>";
+              echo "<tr><td>Something went wrong.</td></tr>";
             }
           ?>
           </tr>
         </tbody>
-      </table>
-
-            <!-- /.card-body -->
-          </div>
-      </div><!--/. container-fluid -->
+        </table>
+    </form>
+    <!-- /.card-body -->
+    </div>
+    </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->
   </div>
@@ -167,7 +151,6 @@ if ($noww > $_SESSION['expire']) {
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
-  <br><br><br><br><br><br>
   <?php echo $adminFooter;?>
 </div>
 <!-- ./wrapper -->

@@ -31,7 +31,9 @@ if ($noww > $_SESSION['expire']) {
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
 
-  
+  <!--EXCEL DOCUMENT-->
+  <script type="text/javascript" src="downloadFile.js"></script>
+
 <!-- ata table -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
@@ -76,8 +78,10 @@ if ($noww > $_SESSION['expire']) {
     <section class="content">
       <div class="container-fluid">
       <div class="card-body table-responsive p-0">
-      <a href="../nominated_pdf.php" style="color:white; font-size:15px"><i style="color:white; font-size:15px" class="fas fa-print"></i> PRINT</a></br>
-              <table id="table_id" class="display table table-hover text-nowrap">
+      <button onclick="exportData()">
+        EXPORT EXCEL
+      </button>
+              <table id="tblStocks" class="display table table-hover text-nowrap">
                 <thead style='color:white'>
                 <?php 
                   $results = mysqli_query($con, "SELECT wapendekezwa.companyName,categories.name From categories,wapendekezanawapendekezwa,wapendekezwa WHERE categories.id = wapendekezanawapendekezwa.categoriesFK AND wapendekezwa.id = wapendekezanawapendekezwa.pendekezwaID");
@@ -91,15 +95,9 @@ if ($noww > $_SESSION['expire']) {
                     }
                   ?>
                 </thead>
-                <tbody style='color:black'>
+                <tbody  style='color:black'>
                 <?php 
                     $NO = 1;
-                    $more = "<select>
-                    <option>Select</option>
-                    <option>Update</option>
-                    <option>Delete</option>
-                    <option>Disable</option>
-                    </select>"; 
                     if ($results->num_rows > 0) {
                       while($data = mysqli_fetch_array($results)){
                         echo "<tr><td>" . $NO. "</td><td>". $data['companyName']."</td><td>". $data['name']."</td>";
@@ -130,7 +128,7 @@ if ($noww > $_SESSION['expire']) {
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
-  <?php echo $adminFooter;?>
+   <!--php echo $adminFooter;?--> 
 </div>
 <!-- ./wrapper -->
 
@@ -192,7 +190,7 @@ window.onclick = function(event) {
 
 <script>
 $(document).ready( function () {
-    $('#table_id').DataTable({
+    $('#tblStocks').DataTable({
       "pagingType": "full_numbers",
       "lengthMenu": [
         [10, 25, 50, -1],

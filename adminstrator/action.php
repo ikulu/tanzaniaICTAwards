@@ -108,7 +108,38 @@ if(isset($_GET['moreApprove'])){
     echo '</script>';
 }
 
-//Announ ompanis
+//delete nominator
+if(isset($_GET['moreNominatorDelete'])){
+    $id = $_REQUEST['more'];
+    $qry = "DELETE wapendekezwa,wapendekezanawapendekezwa FROM wapendekezwa INNER JOIN wapendekezanawapendekezwa ON wapendekezanawapendekezwa.pendekezwaID = wapendekezwa.id WHERE wapendekezanawapendekezwa.pendekezaID = $id";
+    $qry2 = "DELETE FROM wapendekeza WHERE id = $id";
+    if(mysqli_query($con,$qry) && mysqli_query($con,$qry2)){
+        echo '<script language="javascript">';
+        echo 'alert("Deleted");location.href="./adminPages/nominatorlist.php";';
+        echo '</script>';
+    }else{
+        echo '<script language="javascript">';
+        echo 'alert("Something went wrong");';
+        echo '</script>';
+    }
+}
+
+//delete user
+if(isset($_GET['moreUserDelete'])){
+    $id = $_REQUEST['more'];
+    $qry = "DELETE FROM admins WHERE id = $id";
+    if(mysqli_query($con,$qry)){
+        echo '<script language="javascript">';
+        echo 'alert("User Deleted");location.href="./adminPages/users.php";';
+        echo '</script>';
+    }else{
+        echo '<script language="javascript">';
+        echo 'alert("Something went wrong");';
+        echo '</script>';
+    }
+}
+
+//update nominators
 if(isset($_GET['moreAnnounce'])){
     $id = $_REQUEST['more'];
 	$qry = "UPDATE wapendekezanawapendekezwa SET status = 'Announced' WHERE id = '$id'";
@@ -118,16 +149,90 @@ if(isset($_GET['moreAnnounce'])){
     echo '</script>';
 }
 
-//Announ ompanis
+//update category
+if(isset($_POST['moreCategoryUpdate'])){
+    $cname = $_POST['categoryN'];
+    $id = $_GET['id'];
+	$qry = "UPDATE categories SET name = '$cname' WHERE id = '$id'";
+    $query_runOne = mysqli_query($con,$qry);
+	echo '<script language="javascript">';
+    echo 'alert("Category Updated");location.href="./adminPages/categories.php";';
+    echo '</script>';
+}
+
+//get nominators
 if(isset($_GET['moreNominees'])){
     $id = $_REQUEST['more'];
 	header("Location: ./adminPages/nominatorslistDetails.php?id=$id");
+}
+
+//Update category
+if(isset($_GET['moreCategoryUpdate'])){
+    $id = $_REQUEST['more'];
+	header("Location: ./adminPages/updateCategory.php?id=$id");
+}
+
+//View perticula users
+if(isset($_GET['moreUsers'])){
+    $id = $_REQUEST['more'];
+	header("Location: ./adminPages/usersDetails.php?id=$id");
 }
 
 //View individual category
 if(isset($_GET['moreCategory'])){
     $id = $_REQUEST['more'];
 	header("Location: ./adminPages/categoryDetails.php?id=$id");
+}
+
+// Save users
+if(isset($_POST['saveUser'])){
+    $name = trim($_POST['name']);
+    $phone = trim($_POST['phone']);
+    $email = trim($_POST['email']);
+    $password = "ictAwards2021";
+
+    $sqll = "INSERT INTO admins (name,phone,email,password) VALUES ('$name','$phone','$email','$password')";
+    if ($con->query($sqll) === TRUE) {
+        echo '<script language="javascript">';
+        echo 'alert("User registered successful!");location.href="./adminPages/categories.php";';
+        echo '</script>';
+    } else {
+        echo '<script language="javascript">';
+        echo 'alert("Sever is temporal Offline, Please comeback later!");location.href="./adminPages/categories.php";';
+        echo '</script>';
+    }
+}
+
+// Save Sector
+if(isset($_POST['saveSector'])){
+    $name = trim($_POST['name']);
+    $awards = trim($_POST['awards']);
+    $sqll = "INSERT INTO sector (name,awardsFK) VALUES ('$name','$awards')";
+    if ($con->query($sqll) === TRUE) {
+        echo '<script language="javascript">';
+        echo 'alert("Sector registered successful!");location.href="./adminPages/categories.php";';
+        echo '</script>';
+    } else {
+        echo '<script language="javascript">';
+        echo 'alert("Sever is temporal Offline, Please comeback later!");location.href="./adminPages/categories.php";';
+        echo '</script>';
+    }
+}
+
+// Save Category
+if(isset($_POST['saveCategory'])){
+    $name = trim($_POST['name']);
+    $sector = trim($_POST['sector']);
+    $sqll = "INSERT INTO categories (name,sectorFK) VALUES ('$name','$sector')";
+    if ($con->query($sqll) === TRUE) {
+        echo '<script language="javascript">';
+        echo 'alert("Category registered successful!");location.href="./adminPages/categories.php";';
+        echo '</script>';
+    } else {
+        echo '<script language="javascript">';
+        echo 'alert("Sever is temporal Offline, Please comeback later!");location.href="./adminPages/categories.php";';
+        echo '</script>';
+    }
 }
 
 // Save users
@@ -149,7 +254,7 @@ if(isset($_POST['saveUser'])){
     }
 }
 
-// Save users
+// Change users Password
 if(isset($_POST['changeUserPassword'])){
     $passNew = trim($_POST['pnew']);
     $passOld = trim($_POST['pold']);
@@ -167,5 +272,4 @@ if(isset($_POST['changeUserPassword'])){
         echo '</script>';
     }
 }
-
 ?>

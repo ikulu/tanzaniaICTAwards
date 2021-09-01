@@ -4,7 +4,7 @@ $(document).ready(function(){
 		editButton: false,   		
 		columns: {
 		  identifier: [0, 'id'],                    
-		  editable: [[1, 'name'], [2, 'gender'], [3, 'age'], [4, 'designation'], [5, 'address']]
+		  editable: [[1, 'cname']]
 		},
 		hideIdentifier: true,
 		url: 'live_edit.php'		

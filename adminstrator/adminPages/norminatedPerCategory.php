@@ -105,7 +105,6 @@
         <table id="table_id" class="display table table-hover text-nowrap">
             <tr><td>Nominated Company will be shown here</td></tr>
         </table>
-
         </div>
         </div><!--/. container-fluid -->
     </section>

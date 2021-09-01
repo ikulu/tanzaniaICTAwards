@@ -20,7 +20,7 @@ if ($noww > $_SESSION['expire']) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tanzania ICT Awards | Appoved Companies</title>
+  <title>Tanzania ICT Awards | Approved Companies</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -30,6 +30,9 @@ if ($noww > $_SESSION['expire']) {
   <link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+
+  <!--EXCEL DOCUMENT-->
+  <script type="text/javascript" src="downloadFile.js"></script>
 
   <!-- ata table -->
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
@@ -74,8 +77,10 @@ if ($noww > $_SESSION['expire']) {
     <section class="content">
       <div class="container-fluid">
       <div class="card-body table-responsive p-0">
-      <a href="../report/announce_pdf.php" style="color:white; font-size:15px"><i style="color:white; font-size:15px" class="fas fa-print"></i> PRINT</a></br>
-              <table id="table_id" class="display table table-hover text-nowrap">
+      <button onclick="exportData()">
+        EXPORT EXCEL
+      </button>
+      <table id="tblStocks" class="display table table-hover text-nowrap">
                 <thead style='color:white'>
                   <?php 
                   $nomineeTypeName = "SELECT wapendekezwa.companyName,wapendekezanawapendekezwa.id,wapendekezanawapendekezwa.status,categories.name FROM wapendekezwa INNER JOIN wapendekezanawapendekezwa ON wapendekezwa.id=wapendekezanawapendekezwa.pendekezwaID INNER JOIN categories ON categories.id = wapendekezanawapendekezwa.categoriesFK WHERE wapendekezanawapendekezwa.status IN('Announced')";
@@ -90,7 +95,7 @@ if ($noww > $_SESSION['expire']) {
                     }
                   ?>
                 </thead>
-                <tbody style='color:black'>
+                <tbody style="color:black">
                   <?php 
                   function add_or_update_params($url,$key,$value){
                     $a = parse_url($url);
@@ -182,7 +187,7 @@ if ($noww > $_SESSION['expire']) {
 
 <script>
 $(document).ready( function () {
-    $('#table_id').DataTable({
+    $('#tblStocks').DataTable({
       "pagingType": "full_numbers",
       "lengthMenu": [
         [10, 25, 50, -1],

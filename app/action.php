@@ -79,8 +79,6 @@ if(isset($_POST['getNominationVerify'])){
     }
 }
 
-
-
 //send verification codes
 if(isset($_POST['verification'])){
 	$name = trim($_POST['name']);
@@ -138,26 +136,31 @@ try {
 
 // register watu wanaopendekeza
 if(isset($_POST['register'])){
-    
 	$name = trim($_POST['name']);
 	$email = trim($_POST['email']);
 	$code = trim($_POST['codes']);
-	$bisISP = trim($_POST['bisISP']);
-	$bisIS = trim($_POST['bisIS']);
-	$bisAS = trim($_POST['bisAS']);
-	$bisHS = trim($_POST['bisHS']);
-	$fsa = trim($_POST['fsa']);
-	$isa = trim($_POST['isa']);
-	$asa = trim($_POST['asa']);
-	$hsa = trim($_POST['hsa']);
-    $esa = trim($_POST['esa']);
-    $ra = trim($_POST['ra']);
-    $ra2 = trim($_POST['ra2']);
-    $byie = trim($_POST['byie']);
-    $bir = trim($_POST['bir']);
-    $bir2 = trim($_POST['bir']);
-    $laa = trim($_POST['laa']);
-    $laa2 = trim($_POST['laa2']);
+	$bisISP = "";
+	$bisIS = "";
+	$bisAS = "";
+	$bisHS = "";
+	$fsa = "";
+	$isa = "";
+	$asa = "";
+	$hsa = "";
+    $esa = "";
+    $ra = "";
+    $BFTCID = "";
+    $byie = "";
+    $bir = "";
+    $BISAID = "";
+
+    $bestMF = "";
+    $bestJ = "";
+    $bestMD = "";
+    $bestM = "";
+
+    $laa = "";
+    $bmICTRID = "";
 
     $bisISPInput = trim($_POST['bisISPInput']);
 	$bisISInput = trim($_POST['bisISInput']);
@@ -169,12 +172,16 @@ if(isset($_POST['register'])){
 	$hsaInput = trim($_POST['hsaInput']);
     $esaInput = trim($_POST['esaInput']);
     $raInput = trim($_POST['raInput']);
-    $raInput2 = trim($_POST['raInput2']);
+    $BFTC = trim($_POST['BFTC']);
     $laaInput  = trim($_POST['laaInput']);
-    $laaInput2  = trim($_POST['laaInput2']);
+    $bmICTR  = trim($_POST['bmICTR']);
     $byieInput = trim($_POST['byieInput']);
     $birInput = trim($_POST['birInput']);
-    $birInput2 = trim($_POST['birInput2']);
+    $BISA = trim($_POST['BISA']);
+    $bestMaleFemaleName = trim($_POST['bestMaleFemaleName']);
+    $bestJounalistName = trim($_POST['bestJounalistName']);
+    $bestMediaName = trim($_POST['bestMediaName']);
+    $bestMinistryName = trim($_POST['bestMinistryName']);
     
     
     $bisISPInputWeb = trim($_POST['bisISPInputWeb']);
@@ -182,72 +189,85 @@ if(isset($_POST['register'])){
 	$bisASInputWeb = trim($_POST['bisASInputWeb']);
 	$bisHSInputWeb = trim($_POST['bisHSInputWeb']);
     $laaInputWeb  = trim($_POST['laaInputWeb']);
-    $laaInputWeb2  = trim($_POST['laaInputWeb2']);
+    $bmICTRPerson  = trim($_POST['bmICTRPerson']);
 	$fsaInputWeb = trim($_POST['fsaInputWeb']);
 	$isaInputWeb = trim($_POST['isaInputWeb']);
 	$asaInputWeb = trim($_POST['asaInputWeb']);
 	$hsaInputWeb = trim($_POST['hsaInputWeb']);
     $esaInputWeb = trim($_POST['esaInputWeb']);
     $raInputWeb = trim($_POST['raInputWeb']);
-    $raInputWeb2 = trim($_POST['raInputWeb2']);
+    $BFTCPerson = trim($_POST['BFTCPerson']);
     $byieInputWeb = trim($_POST['byieInputWeb']);
     $birInputWeb = trim($_POST['birInputWeb']);
-    $birInputWeb2 = trim($_POST['birInputWeb2']);
+    $BISAPerson = trim($_POST['BISAPerson']);
+    $bestMaleFemalePerson = trim($_POST['bestMaleFemalePerson']);
+    $bestJounalistPerson = trim($_POST['bestJounalistPerson']);
+    $bestMediaPerson = trim($_POST['bestMediaPerson']);
+    $bestMinistryPerson = trim($_POST['bestMinistryPerson']);
 
     $bisISPInputWeb2 = trim($_POST['bisISPInputWeb2']);
 	$bisISInputWeb2 = trim($_POST['bisISInputWeb2']);
 	$bisASInputWeb2 = trim($_POST['bisASInputWeb2']);
 	$bisHSInputWeb2 = trim($_POST['bisHSInputWeb2']);
     $laaInputWeb2  = trim($_POST['laaInputWeb2']);
-    $laaInputWeb22  = trim($_POST['laaInputWeb22']);
+    $bmICTRPhone  = trim($_POST['bmICTRPhone']);
 	$fsaInputWeb2 = trim($_POST['fsaInputWeb2']);
 	$isaInputWeb2 = trim($_POST['isaInputWeb2']);
 	$asaInputWeb2 = trim($_POST['asaInputWeb2']);
 	$hsaInputWeb2 = trim($_POST['hsaInputWeb2']);
     $esaInputWeb2 = trim($_POST['esaInputWeb2']);
     $raInputWeb2 = trim($_POST['raInputWeb2']);
-    $raInputWeb22 = trim($_POST['raInputWeb22']);
+    $BFTCPhone = trim($_POST['BFTCPhone']);
     $byieInputWeb2 = trim($_POST['byieInputWeb2']);
     $birInputWeb2 = trim($_POST['birInputWeb2']);
-    $birInputWeb22 = trim($_POST['birInputWeb22']);
+    $BISAPhone = trim($_POST['BISAPhone']);
+    $bestMaleFemalePhone = trim($_POST['bestMaleFemalePhone']);
+    $bestJounalistPhone = trim($_POST['bestJounalistPhone']);
+    $bestMediaPhone = trim($_POST['bestMediaPhone']);
+    $bestMinistryPhone = trim($_POST['bestMinistryPhone']);
 
     $bisISPInputWeb22 = trim($_POST['bisISPInputWeb22']);
 	$bisISInputWeb22 = trim($_POST['bisISInputWeb22']);
 	$bisASInputWeb22 = trim($_POST['bisASInputWeb22']);
 	$bisHSInputWeb22 = trim($_POST['bisHSInputWeb22']);
     $laaInputWeb22  = trim($_POST['laaInputWeb22']);
-    $laaInputWeb222  = trim($_POST['laaInputWeb222']);
+    $bmICTRWhy  = trim($_POST['bmICTRWhy']);
 	$fsaInputWeb22 = trim($_POST['fsaInputWeb22']);
 	$isaInputWeb22 = trim($_POST['isaInputWeb22']);
 	$asaInputWeb22 = trim($_POST['asaInputWeb22']);
 	$hsaInputWeb22 = trim($_POST['hsaInputWeb22']);
     $esaInputWeb22 = trim($_POST['esaInputWeb22']);
     $raInputWeb22 = trim($_POST['raInputWeb22']);
-    $raInputWeb222 = trim($_POST['raInputWeb222']);
+    $BFTCWhy = trim($_POST['BFTCWhy']);
     $byieInputWeb22 = trim($_POST['byieInputWeb22']);
     $birInputWeb22 = trim($_POST['birInputWeb22']);
-    $birInputWeb222 = trim($_POST['birInputWeb222']);
+    $BISAWhy = trim($_POST['BISAWhy']);
+    $bestMaleFemaleWhy = trim($_POST['bestMaleFemaleWhy']);
+    $bestJounalistWhy = trim($_POST['bestJounalistWhy']);
+    $bestMediaWhy = trim($_POST['bestMediaWhy']);
+    $bestMinistryWhy = trim($_POST['bestMinistryWhy']);
     
 	$user = '';
 
-    //validate codes first
-    $queryOne = "SELECT * FROM tmp WHERE codes = '$code'";
-    $query_runOne = mysqli_query($con,$queryOne);
-    while($rows = mysqli_fetch_array($query_runOne)){
-        $codes = "{$rows['codes']}";
-    }
-    if($codes != $code){
-        echo '<script language="javascript">';
-        echo 'alert("Please give valid codes");location.href="./regNominees.php";';
-        echo '</script>';
-        exit;
-    }else{
-        $sql = "delete from tmp WHERE codes = '$code'";
-        $con->query($sql);
-    }
-
     //validation for the inputs 
-	if($laaInput != "" || $laaInput2 != "" || $bisISPInput != "" || $bisISInput != "" || $bisASInput != "" ||  $bisHSInput != "" ||  $fsaInput != "" || $isaInput != "" || $asaInput != "" || $hsaInput != "" || $esaInput != "" || $raInput != "" || $raInput2 != "" || $byieInput != "" || $birInput != "" || $birInput2 != ""){
+	if($laaInput != "" || $bmICTR != "" || $bisISPInput != "" || $bisISInput != "" || $bisASInput != "" ||  $bisHSInput != "" ||  $fsaInput != "" || $isaInput != "" || $asaInput != "" || $hsaInput != "" || $esaInput != "" || $raInput != "" || $BFTC != "" || $byieInput != "" || $birInput != "" || $BISA != "" || $bestMaleFemaleName != "" || $bestJounalistName != "" || $bestMediaName != "" || $bestMinistryName != ""){
+        //validate codes first
+        $queryOne = "SELECT * FROM tmp WHERE codes = '$code'";
+        $query_runOne = mysqli_query($con,$queryOne);
+        while($rows = mysqli_fetch_array($query_runOne)){
+            $codes = "{$rows['codes']}";
+        }
+
+        if($codes != $code){
+            echo '<script language="javascript">';
+            echo 'alert("Please give valid codes");location.href="./regNominees.php";';
+            echo '</script>';
+            exit;
+        }else{
+            $sql = "delete from tmp WHERE codes = '$code'";
+            $con->query($sql);
+        }
+
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             echo '<script language="javascript">';
             echo 'alert("Invalid email address");location.href="./regNominees.php";';
@@ -266,7 +286,7 @@ if(isset($_POST['register'])){
             
         } else {
             echo '<script language="javascript">';
-            echo 'alert("Sever is temporal Offline, Please comeback later!");location.href="./regNominees.php";';
+            echo 'alert("Server is temporal Offline, Please comeback later!");';
             echo '</script>';
         }
 
@@ -384,7 +404,7 @@ if(isset($_POST['register'])){
         }
 
         if($hsaInput != ""){
-            $sql = "INSERT INTO wapendekezwa (companyName,companyAddress,contact,reason) VALUES ('$hsaInput','$hsaInputWeb','$hsaInputWeb2','$hsaInputWeb22)";
+            $sql = "INSERT INTO wapendekezwa (companyName,companyAddress,contact,reason) VALUES ('$hsaInput','$hsaInputWeb','$hsaInputWeb2','$hsaInputWeb22')";
             if ($con->query($sql) === TRUE){
                 $queryOne = "SELECT * FROM wapendekezwa WHERE companyName = '$hsaInput'";
                 $query_runOne = mysqli_query($con,$queryOne);
@@ -401,7 +421,7 @@ if(isset($_POST['register'])){
         if($esaInput != ""){
             $sql = "INSERT INTO wapendekezwa (companyName,companyAddress,contact,reason) VALUES ('$esaInput','$esaInputWeb','$esaInputWeb2','$esaInputWeb22')";
             if ($con->query($sql) === TRUE){
-                $queryOne = "SELECT * FROM wapendekezwa WHERE companyName = '$hsaInput'";
+                $queryOne = "SELECT * FROM wapendekezwa WHERE companyName = '$esaInput'";
                 $query_runOne = mysqli_query($con,$queryOne);
                 $upOne = mysqli_num_rows($query_runOne); 
                 if($upOne > 0){
@@ -428,10 +448,10 @@ if(isset($_POST['register'])){
             }
         }
 
-        if($raInput2 != ""){
-            $sql = "INSERT INTO wapendekezwa (companyName,companyAddress,contact,reason) VALUES ('$raInput2','$raInputWeb2','$raInputWeb22','$raInputWeb222')";
+        if($BFTC != ""){
+            $sql = "INSERT INTO wapendekezwa (companyName,companyAddress,contact,reason) VALUES ('$BFTC','$BFTCPerson','$BFTCPhone','$BFTCWhy')";
             if ($con->query($sql) === TRUE){
-                $queryOne = "SELECT * FROM wapendekezwa WHERE companyName = '$raInput2'";
+                $queryOne = "SELECT * FROM wapendekezwa WHERE companyName = '$BFTC'";
                 $query_runOne = mysqli_query($con,$queryOne);
                 $upOne = mysqli_num_rows($query_runOne); 
                 if($upOne > 0){
@@ -439,7 +459,7 @@ if(isset($_POST['register'])){
                         $id = "{$rows['id']}";
                     }
                 }
-                $ra2 = $id;
+                $BFTCID = $id;
             }
         }
 
@@ -473,10 +493,10 @@ if(isset($_POST['register'])){
             }
         }
 
-        if($birInput2 != ""){
-            $sql = "INSERT INTO wapendekezwa (companyName,companyAddress,contact,reason) VALUES ('$birInput','$birInputWeb2','$birInputWeb22','$birInputWeb222')";
+        if($BISA != ""){
+            $sql = "INSERT INTO wapendekezwa (companyName,companyAddress,contact,reason) VALUES ('$BISA','$BISAPerson','$BISAPhone','$BISAWhy')";
             if ($con->query($sql) === TRUE){
-                $queryOne = "SELECT * FROM wapendekezwa WHERE companyName = '$birInput'";
+                $queryOne = "SELECT * FROM wapendekezwa WHERE companyName = '$BISA'";
                 $query_runOne = mysqli_query($con,$queryOne);
                 $upOne = mysqli_num_rows($query_runOne); 
                 if($upOne > 0){
@@ -484,7 +504,66 @@ if(isset($_POST['register'])){
                         $id = "{$rows['id']}";
                     }
                 }
-                $bir2 = $id;
+                $BISAID = $id;
+            }
+        }
+
+        if($bestMaleFemaleName != ""){
+            $sql = "INSERT INTO wapendekezwa (companyName,companyAddress,contact,reason) VALUES ('$bestMaleFemaleName','$bestMaleFemalePerson','$bestMaleFemalePhone','$bestMaleFemaleWhy')";
+            if ($con->query($sql) === TRUE){
+                $queryOne = "SELECT * FROM wapendekezwa WHERE companyName = '$bestMaleFemaleName'";
+                $query_runOne = mysqli_query($con,$queryOne);
+                $upOne = mysqli_num_rows($query_runOne); 
+                if($upOne > 0){
+                    while($rows = mysqli_fetch_array($query_runOne)){
+                        $id = "{$rows['id']}";
+                    }
+                }
+                $bestMF = $id;
+            }
+        }
+
+        if($bestJounalistName != ""){
+            $sql = "INSERT INTO wapendekezwa (companyName,companyAddress,contact,reason) VALUES ('$bestJounalistName','$bestJounalistPerson','$bestJounalistPhone','$bestJounalistWhy')";
+            if ($con->query($sql) === TRUE){
+                $queryOne = "SELECT * FROM wapendekezwa WHERE companyName = '$bestJounalistName'";
+                $query_runOne = mysqli_query($con,$queryOne);
+                $upOne = mysqli_num_rows($query_runOne); 
+                if($upOne > 0){
+                    while($rows = mysqli_fetch_array($query_runOne)){
+                        $id = "{$rows['id']}";
+                    }
+                }
+                $bestJ = $id;
+            }
+        }
+
+        if($bestMediaName != ""){
+            $sql = "INSERT INTO wapendekezwa (companyName,companyAddress,contact,reason) VALUES ('$bestMediaName','$bestMediaPerson','$bestMediaPhone','$bestMediaWhy')";
+            if ($con->query($sql) === TRUE){
+                $queryOne = "SELECT * FROM wapendekezwa WHERE companyName = '$bestMediaName'";
+                $query_runOne = mysqli_query($con,$queryOne);
+                $upOne = mysqli_num_rows($query_runOne); 
+                if($upOne > 0){
+                    while($rows = mysqli_fetch_array($query_runOne)){
+                        $id = "{$rows['id']}";
+                    }
+                }
+                $bestMD = $id;
+            }
+        }
+        if($bestMinistryName != ""){
+            $sql = "INSERT INTO wapendekezwa (companyName,companyAddress,contact,reason) VALUES ('$bestMinistryName','$bestMinistryPerson','$bestMinistryPhone','$bestMinistryWhy')";
+            if ($con->query($sql) === TRUE){
+                $queryOne = "SELECT * FROM wapendekezwa WHERE companyName = '$bestMinistryName'";
+                $query_runOne = mysqli_query($con,$queryOne);
+                $upOne = mysqli_num_rows($query_runOne); 
+                if($upOne > 0){
+                    while($rows = mysqli_fetch_array($query_runOne)){
+                        $id = "{$rows['id']}";
+                    }
+                }
+                $bestM = $id;
             }
         }
 
@@ -503,10 +582,10 @@ if(isset($_POST['register'])){
             }
         }
 
-        if($laaInput2 != ""){
-            $sql = "INSERT INTO wapendekezwa (companyName,companyAddress,contact,reason) VALUES ('$laaInput','$laaInputWeb2','$laaInputWeb22','$laaInputWeb222')";
+        if($bmICTR != ""){
+            $sql = "INSERT INTO wapendekezwa (companyName,companyAddress,contact,reason) VALUES ('$bmICTR','$bmICTRPerson','$bmICTRPhone','$bmICTRWhy')";
             if ($con->query($sql) === TRUE){
-                $queryOne = "SELECT * FROM wapendekezwa WHERE companyName = '$laaInput'";
+                $queryOne = "SELECT * FROM wapendekezwa WHERE companyName = '$bmICTR'";
                 $query_runOne = mysqli_query($con,$queryOne);
                 $upOne = mysqli_num_rows($query_runOne); 
                 if($upOne > 0){
@@ -514,15 +593,15 @@ if(isset($_POST['register'])){
                         $id = "{$rows['id']}";
                     }
                 }
-                $laa2 = $id;
+                $bmICTRID = $id;
             }
         }
+
 
         $sql2 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (1,'$user','$bisISP','not confirmed')";
         $sql3 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (2,'$user','$bisIS','not confirmed')";
         $sql4 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (3,'$user','$bisAS','not confirmed')";
         $sql5 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (4,'$user','$bisHS','not confirmed')";
-        // $sql6 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (3,'$user','$bisSD','not confirmed')";
 
         $sql7 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (5,'$user','$fsa','not confirmed')";
         $sql8 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (6,'$user','$isa','not confirmed')";
@@ -531,31 +610,98 @@ if(isset($_POST['register'])){
         $sql11 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (9,'$user','$esa','not confirmed')";
         $sql12 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (10,'$user','$ra','not confirmed')";
         $sql13 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (14,'$user','$byie','not confirmed')";
-        $sql14 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (16,'$user','$bir2','not confirmed')";
+        $sql14 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (16,'$user','$BISAID','not confirmed')";
         $sql15 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (15,'$user','$bir','not confirmed')";
         $sql16 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (12,'$user','$laa','not confirmed')";
-        $sql17 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (13,'$user','$laa2','not confirmed')";
-        $sql18 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (11,'$user','$ra2','not confirmed')";
+        $sql17 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (13,'$user','$bmICTRID','not confirmed')";
+        $sql18 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (11,'$user','$BFTCID','not confirmed')";
+        $sql19 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (17,'$user','$bestMF','not confirmed')";
+        $sql20 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (18,'$user','$bestJ','not confirmed')";
+        $sql21 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (19,'$user','$bestMD','not confirmed')";
+        $sql22 = "INSERT INTO wapendekezanawapendekezwa (categoriesFK,pendekezaID,pendekezwaID,status) VALUES (20,'$user','$bestM','not confirmed')";
+    
+        if($bisISP != "" && $user != ""){
+            $con->query($sql2);
+        }
+
+        if($bisIS != "" && $user != ""){
+            $con->query($sql3);
+        }
+
+        if($bisAS != "" && $user != ""){
+            $con->query($sql4);
+        }
+
+        if($bisHS != "" && $user != ""){
+            $con->query($sql5);
+        }
+
+        if($fsa != "" && $user != ""){
+            $con->query($sql7);
+        }
+
+        if($isa != "" && $user != ""){
+            $con->query($sql8);
+        }
+
+        if($asa != "" && $user != ""){
+            $con->query($sql9);
+        }
+
+        if($hsa != "" && $user != ""){
+            $con->query($sql10);
+        }
+
+        if($esa != "" && $user != ""){
+            $con->query($sql11);
+        }
+
+        if($ra != "" && $user != ""){
+            $con->query($sql12);
+        }
+
+        if($byie != "" && $user != ""){
+            $con->query($sql13);
+        }
+
+        if($BISAID != "" && $user != ""){
+            $con->query($sql14);
+        }
+
+        if($bir != "" && $user != ""){
+            $con->query($sql15);
+        }
+
+        if($laa != "" && $user != ""){
+            $con->query($sql16);
+        }
+
+        if($bmICTRID != "" && $user != ""){
+            $con->query($sql17);
+        }
+
+        if($BFTCID != "" && $user != ""){
+            $con->query($sql18);
+        }
+
+        if($bestMF != "" && $user != ""){
+            $con->query($sql19);
+        }
+
+        if($bestJ != "" && $user != ""){
+            $con->query($sql20);
+        }
+
+        if($bestMD != "" && $user != ""){
+            $con->query($sql21);
+        }
         
-        $con->query($sql2);
-        $con->query($sql3);
-        $con->query($sql4);
-        $con->query($sql5);
-        $con->query($sql6);
-        $con->query($sql7);
-        $con->query($sql8);
-        $con->query($sql9);
-        $con->query($sql10);
-        $con->query($sql11);
-        $con->query($sql12);
-        $con->query($sql13);
-        $con->query($sql14);
-        $con->query($sql15);
-        $con->query($sql16);
-        $con->query($sql17);
-        $con->query($sql18);
+        if($bestM != "" && $user != ""){
+            $con->query($sql22);
+        }
+        
         echo '<script language="javascript">';
-        echo 'alert("congrats!!! You have Successful nominate");location.href="./regNominees.php";';
+        echo 'alert("congrats!!! You have Successful nominated");location.href="./regNominees.php";';
         echo '</script>';
 	}else{
         echo '<script language="javascript">';

@@ -204,6 +204,30 @@ $(document).ready(function(){
         phoneNumber.value = phoneFormat(phoneNumber.value);
     });
 
+    document.getElementById('phoneNumber17').addEventListener('keyup',function(evt){
+        var phoneNumber = document.getElementById('phoneNumber17');
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        phoneNumber.value = phoneFormat(phoneNumber.value);
+    });
+
+    document.getElementById('phoneNumber18').addEventListener('keyup',function(evt){
+        var phoneNumber = document.getElementById('phoneNumber18');
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        phoneNumber.value = phoneFormat(phoneNumber.value);
+    });
+
+    document.getElementById('phoneNumber19').addEventListener('keyup',function(evt){
+        var phoneNumber = document.getElementById('phoneNumber19');
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        phoneNumber.value = phoneFormat(phoneNumber.value);
+    });
+
+    document.getElementById('phoneNumber20').addEventListener('keyup',function(evt){
+        var phoneNumber = document.getElementById('phoneNumber20');
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        phoneNumber.value = phoneFormat(phoneNumber.value);
+    });
+
 	$("#1").hide();
     $("#2").hide();
     $("#3").hide();
@@ -220,7 +244,10 @@ $(document).ready(function(){
     $("#13").hide();
     $("#14").hide();
     $("#15").hide();
-    $("#16").hide();
+    $("#17").hide();
+    $("#18").hide();
+    $("#19").hide();
+    $("#20").hide();
 
   $("#btn1").click(function(){
     $("#1").show();
@@ -239,6 +266,10 @@ $(document).ready(function(){
     $("#16").hide();
     $("#14").hide();
     $("#15").hide();
+    $("#17").hide();
+    $("#18").hide();
+    $("#19").hide();
+    $("#20").hide();
   });
   
   $("#btn2").click(function(){
@@ -258,6 +289,10 @@ $(document).ready(function(){
     $("#13").hide();
     $("#14").hide();
     $("#15").hide();
+    $("#17").hide();
+    $("#18").hide();
+    $("#19").hide();
+    $("#20").hide();
   });
 
   $("#btn3").click(function(){
@@ -277,6 +312,10 @@ $(document).ready(function(){
     $("#13").hide();
     $("#14").hide();
     $("#15").hide();
+    $("#17").hide();
+    $("#18").hide();
+    $("#19").hide();
+    $("#20").hide();
   });
 
   $("#btn4").click(function(){
@@ -296,6 +335,10 @@ $(document).ready(function(){
     $("#13").hide();
     $("#14").hide();
     $("#15").hide();
+    $("#17").hide();
+    $("#18").hide();
+    $("#19").hide();
+    $("#20").hide();
   });
 
   $("#btn5").click(function(){
@@ -315,6 +358,10 @@ $(document).ready(function(){
     $("#13").hide();
     $("#14").hide();
     $("#15").hide();
+    $("#17").hide();
+    $("#18").hide();
+    $("#19").hide();
+    $("#20").hide();
   });
 
   $("#btn6").click(function(){
@@ -334,6 +381,10 @@ $(document).ready(function(){
     $("#13").hide();
     $("#14").hide();
     $("#15").hide();
+    $("#17").hide();
+    $("#18").hide();
+    $("#19").hide();
+    $("#20").hide();
   });
 
   $("#btn7").click(function(){
@@ -353,6 +404,10 @@ $(document).ready(function(){
     $("#13").hide();
     $("#14").hide();
     $("#15").hide();
+    $("#17").hide();
+    $("#18").hide();
+    $("#19").hide();
+    $("#20").hide();
   });
 
   $("#btn8").click(function(){
@@ -372,6 +427,10 @@ $(document).ready(function(){
     $("#16").hide();
     $("#14").hide();
     $("#15").hide();
+    $("#17").hide();
+    $("#18").hide();
+    $("#19").hide();
+    $("#20").hide();
   });
 
   $("#btn9").click(function(){
@@ -391,6 +450,10 @@ $(document).ready(function(){
     $("#16").hide();
     $("#14").hide();
     $("#15").hide();
+    $("#17").hide();
+    $("#18").hide();
+    $("#19").hide();
+    $("#20").hide();
   });
 
   $("#btn10").click(function(){
@@ -410,6 +473,10 @@ $(document).ready(function(){
     $("#13").hide();
     $("#14").hide();
     $("#15").hide();
+    $("#17").hide();
+    $("#18").hide();
+    $("#19").hide();
+    $("#20").hide();
   });
 
   $("#btn11").click(function(){
@@ -429,6 +496,10 @@ $(document).ready(function(){
     $("#13").hide();
     $("#14").hide();
     $("#15").hide();
+    $("#17").hide();
+    $("#18").hide();
+    $("#19").hide();
+    $("#20").hide();
   });
 
   $("#btn12").click(function(){
@@ -448,6 +519,10 @@ $(document).ready(function(){
     $("#13").hide();
     $("#14").hide();
     $("#15").hide();
+    $("#17").hide();
+    $("#18").hide();
+    $("#19").hide();
+    $("#20").hide();
   });
 
   $("#btn13").click(function(){
@@ -467,6 +542,10 @@ $(document).ready(function(){
     $("#1").hide();
     $("#14").hide();
     $("#15").hide();
+    $("#17").hide();
+    $("#18").hide();
+    $("#19").hide();
+    $("#20").hide();
   });
 
   $("#btn14").click(function(){
@@ -486,6 +565,10 @@ $(document).ready(function(){
     $("#1").hide();
     $("#16").hide();
     $("#15").hide();
+    $("#17").hide();
+    $("#18").hide();
+    $("#19").hide();
+    $("#20").hide();
   });
 
   $("#btn15").click(function(){
@@ -505,6 +588,10 @@ $(document).ready(function(){
     $("#14").hide();
     $("#1").hide();
     $("#16").hide();
+    $("#17").hide();
+    $("#18").hide();
+    $("#19").hide();
+    $("#20").hide();
   });
 
     $("#btn16").click(function(){
@@ -524,7 +611,104 @@ $(document).ready(function(){
     $("#14").hide();
     $("#15").hide();
     $("#1").hide();
+    $("#17").hide();
+    $("#18").hide();
+    $("#19").hide();
+    $("#20").hide();
   });
+
+  $("#btn17").click(function(){
+    $("#16").hide();
+    $("#2").hide();
+    $("#3").hide();
+    $("#4").hide();
+    $("#5").hide();
+    $("#6").hide();
+    $("#7").hide();
+    $("#8").hide();
+    $("#9").hide();
+    $("#10").hide();
+    $("#11").hide();
+    $("#12").hide();
+    $("#13").hide();
+    $("#14").hide();
+    $("#15").hide();
+    $("#1").hide();
+    $("#17").show();
+    $("#18").hide();
+    $("#19").hide();
+    $("#20").hide();
+  });
+
+  $("#btn18").click(function(){
+    $("#16").hide();
+    $("#2").hide();
+    $("#3").hide();
+    $("#4").hide();
+    $("#5").hide();
+    $("#6").hide();
+    $("#7").hide();
+    $("#8").hide();
+    $("#9").hide();
+    $("#10").hide();
+    $("#11").hide();
+    $("#12").hide();
+    $("#13").hide();
+    $("#14").hide();
+    $("#15").hide();
+    $("#1").hide();
+    $("#17").hide();
+    $("#18").show();
+    $("#19").hide();
+    $("#20").hide();
+  });
+
+  $("#btn19").click(function(){
+    $("#16").hide();
+    $("#2").hide();
+    $("#3").hide();
+    $("#4").hide();
+    $("#5").hide();
+    $("#6").hide();
+    $("#7").hide();
+    $("#8").hide();
+    $("#9").hide();
+    $("#10").hide();
+    $("#11").hide();
+    $("#12").hide();
+    $("#13").hide();
+    $("#14").hide();
+    $("#15").hide();
+    $("#1").hide();
+    $("#17").hide();
+    $("#18").hide();
+    $("#19").show();
+    $("#20").hide();
+  });
+
+  $("#btn20").click(function(){
+    $("#16").hide();
+    $("#2").hide();
+    $("#3").hide();
+    $("#4").hide();
+    $("#5").hide();
+    $("#6").hide();
+    $("#7").hide();
+    $("#8").hide();
+    $("#9").hide();
+    $("#10").hide();
+    $("#11").hide();
+    $("#12").hide();
+    $("#13").hide();
+    $("#14").hide();
+    $("#15").hide();
+    $("#1").hide();
+    $("#17").hide();
+    $("#18").hide();
+    $("#19").hide();
+    $("#20").show();
+  });
+
 function phoneFormat(input){
         // Strip all characters from the input except digits
         input = input.replace(/\D/g,'');
@@ -600,6 +784,161 @@ function phoneFormat(input){
                             </div>
                            <br>
                             <h6>Choose your Normination</h6>
+                            <!--php 
+                            $count = 1;
+                            $Best_ICT_Incubation_hub = "<p>This award recognises Incubators that have played a
+                            pivotal role in the tech and business eco-system by
+                            supporting ideas and startup companies with
+                            innovation spaces, office spaces, link to funding, and
+                            connections into academic environments.</p>";
+                            $Best_ICT_Startup = "<p>This award recognises the outstanding local ICT
+                            startup companies focusing on software, hardware
+                            and social innovation areas and rewards their
+                            distinguished development based on growth,
+                            innovation, creativity, functionality, market potential
+                            and performance.</p>";
+                            $Best_Innovative_ICT_StudentM = "<p>This award is given in recognition of a Higher
+                            Learning Institution male student who is developing
+                            an ICT innovation, demonstrated passion,
+                            commitment and talent in the ICT field.</p>";
+                            $Best_Innovative_ICT_StudentF = "<p>This award is given in recognition of a Higher
+                            Learning Institution female student who is
+                            developing an ICT innovation, demonstrated passion,
+                            commitment and talent in the ICT field.</p>";
+                            $Best_Mobile_Network_Operator = "<p>These are mobile network companies that continually
+                            seeks to enhance the development process and
+                            played big role in Corporate Social Responsibilities
+                            (CSR).</p>";
+                            $Best_Company_Providing_Services_on_IT = "<p>This award is for outsourcing IT service providers
+                            that provide the application of business and
+                            technical expertise to enable organizations in the
+                            creation, management, and optimization of or access
+                            to information and business processes.</p>";
+                            $Best_Company_In_Software_Development = "<p>These are Local software development companies
+                            that their software solution has significant impact to
+                            local challenges.</p>";
+                            $Best_ICT_Transformative_Training_Institution = "<p>This Award recognizes achievements of Schools and
+                            Educational institutions for their optimum utilization
+                            of ICT in the education sector. The Award will be
+                            awarded on the basis of implementation of digital
+                            education as an effective tool for learning service.</p>";
+                            $Best_ICT_Transformative_Institution_In_Provision_Of_Health_Services = "<p>These are health facilities that have adapted to
+                            digital technology and have efficiently used digital
+                            tools to improve their efficiency in delivering health
+                            services.</p>";
+                            $BEST_ICT_INSTITUTION_PROVIDING_SERVICES_IN_FINANCIAL_SECTOR = "<p>This award will go to the most innovative and agile
+                            fintech that are leading digital transformation in the
+                            financial sector.</p>";
+                            $BEST_FINANCIAL_TECHNOLOGY_COMPANY = "<p>This award will go to the most innovative and agile
+                            bank that are leading digital transformation in the
+                            financial sector.</p>";
+                            $Best_Female_ICT_researcher = "<p>This award recognises female individuals whose
+                            research works has contributed to develop or
+                            promote the ICT sector in Tanzania.</p>";
+                            $Best_Male_ICT_researcher = "<p>This award recognises male individuals who have
+                            research contributions in terms of development or
+                            promotion of ICT in Tanzania.</p>";
+                            $Best_Company_In_Digital_Insurance_Services = "<p>This award is given to the insurance organization that
+                            has well harnessed technology and digital solutions
+                            to improve business processes and leverage overall
+                            client experience.</p>";
+                            $Best_LGA_In_Using_ICT_Applications = "<p>These are Local Government Authorities that are
+                            using tech solutions and digital tools to improve
+                            convenience, efficiency and productivity.</p>";
+                            $Best_ICT_Solution_In_Agriculture = "<p>This award recognises local innovators who are
+                            creating digital solutions for agriculture. These are
+                            individuals, companies or institutions that are
+                            spearheading game changing agriculture solutions.</p>";
+
+                            $query = "SELECT * FROM sector";
+                            $query_run = mysqli_query($con,$query);
+                            $up = mysqli_num_rows($query_run); 
+                            if($up > 0){
+                                while($rows = mysqli_fetch_array($query_run)){
+                                    $sname = "{$rows['name']}";
+                                    $sid = "{$rows['id']}";
+                                    echo '<div class="row"><h4 style="font-weight:bold">'.$sname . '</h4><br>';
+                                    $query2 = "SELECT * FROM categories WHERE sectorFK = '$sid'";
+                                    $query2 = mysqli_query($con,$query2);
+                                    $up2 = mysqli_num_rows($query2); 
+                                    if($up2 > 0){
+                                        while($rows = mysqli_fetch_array($query2)){
+                                            $link = 'href=#btn'.$count.' id=btn'.$count.'';
+                                            $id = 'id='.$count.'';
+                                            $cname = "{$rows['name']}";
+                                            $id = "{$rows['id']}";
+                                            if($cid = 1){
+                                                $p = $Best_ICT_Incubation_hub;
+                                            }else if($cname = "Best ICT Startup"){
+                                                $p = $Best_ICT_Startup;
+                                            }else if($cname = "Best Innovative ICT Student (Female)"){
+                                                $p = $Best_Innovative_ICT_StudentF;
+                                            }else if($cname = "Best Innovative ICT Student (Male)"){
+                                                $p = $Best_Innovative_ICT_StudentM;
+                                            }else if($cname = "Best Mobile Network Operator"){
+                                                $p = $Best_Mobile_Network_Operator;
+                                            }else if($cname = "Best Company Providing Services on IT"){
+                                                $p = $Best_Company_Providing_Services_on_IT;
+                                            }else if($cname = "Best Company In Software Development"){
+                                                $p = $Best_Company_In_Software_Development; 
+                                            }else if($cname = "Best ICT Transformative Training Institution"){
+                                                $p = $Best_ICT_Transformative_Training_Institution;
+                                            }else if($cname = "Best ICT Transformative Institution In Provision Of Health Services"){
+                                                $p = $Best_ICT_Transformative_Institution_In_Provision_Of_Health_Services;
+                                            }else if($cname = "BEST ICT INSTITUTION PROVIDING SERVICES IN FINANCIAL SECTOR"){
+                                                $p = $BEST_ICT_INSTITUTION_PROVIDING_SERVICES_IN_FINANCIAL_SECTOR; 
+                                            }else if($cname = "BEST FINANCIAL TECHNOLOGY COMPANY"){
+                                                $p = $BEST_FINANCIAL_TECHNOLOGY_COMPANY; 
+                                            }else if($cname = "Best Female ICT researcher"){
+                                                $p = $Best_Female_ICT_researcher;
+                                            }else if($cname = "Best Male ICT researcher"){
+                                                $p = $Best_Male_ICT_researcher;
+                                            }else if($cname = "Best Company In Digital Insurance Services"){
+                                                $p = $Best_Company_In_Digital_Insurance_Services; 
+                                            }else if($cname = "Best LGA In Using ICT Applications"){
+                                                $p = $Best_LGA_In_Using_ICT_Applications; 
+                                            }else if($cname = "Best ICT Solution In Agriculture"){
+                                                $p = $Best_ICT_Solution_In_Agriculture;
+                                            }
+
+                                            if($up2 > 1){
+                                                $class = 'class="col-6"';;
+                                            }else{
+                                                $class = 'class="col-12"';
+                                            }
+                                            echo '<div '.$class.'><h5><a '.$link.'>'.$cname . '</a></h5>
+                                            <div '.$id.'>
+                                                    '.$p.'
+                                                    <div class="form-floating mb-3">
+                                                        <input class="form-control" id="name" type="text" name="bisISPInput" placeholder="Enter your name..." data-sb-validations="required" />
+                                                        <label for="name">Institution Name</label>
+                                                        <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                                    </div>
+                                                    <div class="form-floating mb-3">
+                                                        <input class="form-control" id="name" type="text" name="bisISPInputWeb" placeholder="Enter your name..." data-sb-validations="required" />
+                                                        <label for="name">Contact Person</label>
+                                                        <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                                    </div>
+                                                    <div class="form-floating mb-3">
+                                                        <input class="form-control" id="phoneNumber1" type="text" name="bisISPInputWeb2" placeholder="Enter your name..." data-sb-validations="required" />
+                                                        <label for="name">Phone Number</label>
+                                                        <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                                    </div>
+                                                    <div class="form-floating mb-3">
+                                                        <textarea class="form-control" id="" name="bisISPInputWeb22" rows="2" cols="10"> </textarea>
+                                                        <label for="name">Why</label>
+                                                        <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                                    </div>
+                                                </div>
+                                            
+                                            </div></br>';
+                                            $count++;
+                                        }
+                                    }
+                                    echo '</div><hr style="color:#f4623a"/>';
+                                }
+                            }
+                            ?-->
                             <br>
                             <div class="form-floating mb-3">
                                 <div class="row">
@@ -673,8 +1012,8 @@ and performance.</p>
                                                         <label for="name">Why</label>
                                                         <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
                                                     </div>
-                                            </div>
-                                            </div>
+                                        </div>
+                                    </div>
                                         <br>
                                         
                                         <div class="row">
@@ -992,24 +1331,24 @@ bank that are leading digital transformation in the
 financial sector.</p>
                                             <!-- Name input-->
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="name" type="text" name="raInput2" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <input class="form-control" id="name" type="text" name="BFTC" placeholder="Enter your name..." data-sb-validations="required" />
                                                 <label for="name">Institution Name</label>
                                                 <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
                                             </div>
                                             <!-- site input-->
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="name" type="text" name="raInputWeb2" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <input class="form-control" id="name" type="text" name="BFTCPerson" placeholder="Enter your name..." data-sb-validations="required" />
                                                 <label for="name">Contact Person</label>
                                                 <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
                                             </div>
                                             <!-- site input-->
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="phoneNumber11" type="text" name="raInputWeb22" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <input class="form-control" id="phoneNumber11" type="text" name="BFTCPhone" placeholder="Enter your name..." data-sb-validations="required" />
                                                 <label for="name">Phone Number</label>
                                                 <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
                                             </div>
                                             <div class="form-floating mb-3">
-                                            <textarea class="form-control" id="" name="raInputWeb222" rows="2" cols="10"> </textarea>
+                                            <textarea class="form-control" id="" name="BFTCWhy" rows="2" cols="10"> </textarea>
                                             <label for="name">Why</label>
                                             <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
                                         </div>
@@ -1063,24 +1402,24 @@ research contributions in terms of development or
 promotion of ICT in Tanzania.</p>
                                             <!-- Name input-->
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="name" type="text" name="laaInput2" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <input class="form-control" id="name" type="text" name="bmICTR" placeholder="Enter your name..." data-sb-validations="required" />
                                                 <label for="name">Full Name</label>
                                                 <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
                                             </div>
                                             <!-- site input-->
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="name" type="text" name="laaInputWeb2" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <input class="form-control" id="name" type="text" name="bmICTRPerson" placeholder="Enter your name..." data-sb-validations="required" />
                                                 <label for="name">Institution</label>
                                                 <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
                                             </div>
                                             <!-- site input-->
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="phoneNumber13" type="text" name="laaInputWeb22" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <input class="form-control" id="phoneNumber13" type="text" name="bmICTRPhone" placeholder="Enter your name..." data-sb-validations="required" />
                                                 <label for="name">Phone Number</label>
                                                 <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
                                             </div>
                                             <div class="form-floating mb-3">
-                                            <textarea class="form-control" id="" name="laaInputWeb222" rows="2" cols="10"> </textarea>
+                                            <textarea class="form-control" id="" name="bmICTRWhy" rows="2" cols="10"> </textarea>
                                             <label for="name">Why</label>
                                             <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
                                         </div>
@@ -1174,24 +1513,156 @@ individuals, companies or institutions that are
 spearheading game changing agriculture solutions.</p>
                                             <!-- Name input-->
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="name" type="text" name="birInput2" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <input class="form-control" id="name" type="text" name="BISA" placeholder="Enter your name..." data-sb-validations="required" />
                                                 <label for="name">Full Name</label>
                                                 <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
                                             </div>
                                             <!-- site input-->
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="name" type="text" name="birInputWeb2" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <input class="form-control" id="name" type="text" name="BISAPerson" placeholder="Enter your name..." data-sb-validations="required" />
                                                 <label for="name">Contact Person</label>
                                                 <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
                                             </div>
                                             <!-- site input-->
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="phoneNumber16" type="text" name="birInputWeb22" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <input class="form-control" id="phoneNumber16" type="text" name="BISAPhone" placeholder="Enter your name..." data-sb-validations="required" />
                                                 <label for="name">Phone Number</label>
                                                 <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
                                             </div>
                                             <div class="form-floating mb-3">
-                                            <textarea class="form-control" id="" name="birInputWeb222" rows="2" cols="10"> </textarea>
+                                            <textarea class="form-control" id="" name="BISAWhy" rows="2" cols="10"> </textarea>
+                                            <label for="name">Why</label>
+                                            <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                        </div>
+                                        </div>
+                                </div>
+                                <hr style="color:#f4623a"/>
+                                <br>
+                                <div class="row">
+                                <h5><a id="btn19" href="#btn19">BEST ARTIST IN USING ICTs FOR DEVELOPMENT</a></h5>
+                                <h6><a style="text-decoration: none;">Msanii Bora anayetumia TEHAMA/mitandao vizuri</a></h6>
+                                <div class="col">
+                                        <div id="19">
+                                        <p>This award recognizes an artist who is using ICTs or social media productively in production, marketing and distribution of his/her artistic work and talent development</p>
+                                            <!-- Name input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="name" type="text" name="bestMaleFemaleName" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <label for="name">Full Name</label>
+                                                <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                            </div>
+                                            <!-- site input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="name" type="text" name="bestMaleFemalePerson" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <label for="name">Contact Person</label>
+                                                <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                            </div>
+                                            <!-- site input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="phoneNumber17" type="text" name="bestMaleFemalePhone" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <label for="name">Phone Number</label>
+                                                <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                            <textarea class="form-control" id="" name="bestMaleFemaleWhy" rows="2" cols="10"> </textarea>
+                                            <label for="name">Why</label>
+                                            <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                        </div>
+                                        </div>
+                                </div>
+                                <hr style="color:#f4623a"/>
+                                <br>
+                                <div class="row">
+                                <h5><a id="btn17" href="#btn17">BEST JOUNALIST IN USING ICT FOR DEVELOPMENT</a></h5>
+                                <h6><a style="text-decoration: none;">Mwandishi bora anayetumia Tehama</a></h6>
+                                <div class="col">
+                                        <div id="17">
+                                        <p>This award recognizes a media practitioner who is using ICT in production and distribution of professional journalism works to educate the public timely. A media practitioner who frequently use websites, blogs, social networks, etc as a promotion tool deserves nomination  </p>
+                                            <!-- Name input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="name" type="text" name="bestJounalistName" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <label for="name">Full Name</label>
+                                                <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                            </div>
+                                            <!-- site input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="name" type="text" name="bestJounalistPerson" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <label for="name">Contact Person</label>
+                                                <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                            </div>
+                                            <!-- site input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="phoneNumber18" type="text" name="bestJounalistPhone" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <label for="name">Phone Number</label>
+                                                <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                            <textarea class="form-control" id="" name="bestJounalistWhy" rows="2" cols="10"> </textarea>
+                                            <label for="name">Why</label>
+                                            <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                        </div>
+                                        </div>
+                                </div>
+                                <hr style="color:#f4623a"/>
+                                <br>
+                                <div class="row">
+                                <h5><a id="btn18" href="#btn18">BEST MEDIA HOUSE IN USING ICT FOR DEVELOPMENT</a></h5>
+                                <h6><a style="text-decoration: none;">Chombo cha Habari kinachotumia Tehama</a></h6>
+                                <div class="col">
+                                        <div id="18">
+                                        <p>This award recognizes the best registered media house in using ICTs for production and distribution of content.</p>
+                                            <!-- Name input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="name" type="text" name="bestMediaName" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <label for="name">Full Name</label>
+                                                <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                            </div>
+                                            <!-- site input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="name" type="text" name="bestMediaPerson" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <label for="name">Contact Person</label>
+                                                <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                            </div>
+                                            <!-- site input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="phoneNumber19" type="text" name="bestMediaPhone" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <label for="name">Phone Number</label>
+                                                <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                            <textarea class="form-control" id="" name="bestMediaWhy" rows="2" cols="10"> </textarea>
+                                            <label for="name">Why</label>
+                                            <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                        </div>
+                                        </div>
+                                </div>
+                                <hr style="color:#f4623a"/>
+                                <br>
+                                <div class="row">
+                                <h5><a id="btn20" href="#btn20">BEST MINISTRY ON ICT INTEGRATION IN SECTORS POLICIES AWARD</a></h5>
+                                <h6><a style="text-decoration: none;">Tuzo ya wizara bora katika ujumuishaji wa TEHAMA kwenye sekta za uchumi.</a></h6>
+                                <div class="col">
+                                        <div id="20">
+                                        <p>This award recognizes the Ministry that is leading to integrate ICT in sector policies and development projects. Policies include strategies, guidelines, regulations, projects, etc related to ICT adoption in respective sectors.</p>
+                                            <!-- Name input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="name" type="text" name="bestMinistryName" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <label for="name">Full Name</label>
+                                                <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                            </div>
+                                            <!-- site input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="name" type="text" name="bestMinistryPerson" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <label for="name">Contact Person</label>
+                                                <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                            </div>
+                                            <!-- site input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="phoneNumber20" type="text" name="bestMinistryPhone" placeholder="Enter your name..." data-sb-validations="required" />
+                                                <label for="name">Phone Number</label>
+                                                <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                            <textarea class="form-control" id="" name="bestMinistryWhy" rows="2" cols="10"> </textarea>
                                             <label for="name">Why</label>
                                             <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
                                         </div>

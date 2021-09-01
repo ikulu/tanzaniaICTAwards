@@ -85,11 +85,6 @@ if ($noww > $_SESSION['expire']) {
                 <thead style="color:white">
                   <?php 
                   $sql = "SELECT * FROM admins";
-                  $drop = "<select id='change'>
-                  <option value=''>Select</option>
-                  <option value='this'>Update</option>
-                  <option value='that'>Disable</option>
-                </select>";
                   $results = $con->query($sql);
                     if ($results->num_rows > 0) {
                       echo '<tr>
@@ -102,13 +97,36 @@ if ($noww > $_SESSION['expire']) {
                   ?>
                 </thead>
                 <tbody style="color:black">
-                  <?php 
+                <?php    
+                function add_or_update_params($url,$key,$value){
+                  $a = parse_url($url);
+                  $query = $a['query'] ? $a['query'] : '';
+                  parse_str($query,$params);
+                  $params[$key] = $value;
+                  $query = http_build_query($params);
+                  $result = '';
+                  if($a['path']){
+                      $result .=  $a['path'];
+                  }
+                  if($query){
+                      $result .=  '?' . $query;
+                  }
+                  return $result;
+                }
+                    $url1 = '../action.php?moreUsers=0';
+                    $forLink = 0;
+                    $more = 'View';
                     $NO = 1;
+                    $link = '';
+                    $class = 'class="btn btn-primary"type="button"';
                     if ($results->num_rows > 0) {
                       while($row = $results->fetch_assoc()) {
                         $name=$row["name"];
                         $email=$row["email"];
-                        echo "<tr><td>" . $NO. "</td><td>". $name."</td><td><a>$email</a></td><td><a>$drop</a></td>";
+                        $forLink = $row["id"];
+                        $url = add_or_update_params($url1,'more',$forLink);
+                        $link = 'href="'.$url.'"';
+                        echo "<tr><td>" . $NO. "</td><td>". $name."</td><td>".$email."</td><td><a $class $link>$more <i class='fa fa-eye' aria-hidden='true'></i></a></td>";
                         $NO++;
                       }
                     } else {

@@ -20,7 +20,7 @@ if ($noww > $_SESSION['expire']) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tanzania ICT Awards | Nominator List</title>
+  <title>Tanzania ICT Awards | Users List</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -58,12 +58,12 @@ if ($noww > $_SESSION['expire']) {
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Nominators</h1>
+            <h1 class="m-0">Users</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="../adminPages/admnHome.php">Home</a></li>
-              <li class="breadcrumb-item active">Nominators</li>
+              <li class="breadcrumb-item active">Users</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -92,7 +92,7 @@ if ($noww > $_SESSION['expire']) {
         return $result;
       }
 
-      $url1 = '../action.php?moreNominatorDelete=0';
+      $url1 = '../action.php?moreUserDelete=0';
       $forLink = $_GET['id'];
       $url = add_or_update_params($url1,'more',$forLink);
       $link = 'href="'.$url.'"';
@@ -105,21 +105,16 @@ if ($noww > $_SESSION['expire']) {
         <thead style='color:white'>
           <?php 
           $id = $_GET['id'];
-          $nomineeDetails = "SELECT categories.name,wapendekezwa.id,wapendekezwa.companyName FROM wapendekezanawapendekezwa,categories,wapendekezwa WHERE wapendekezwa.id = wapendekezanawapendekezwa.pendekezwaID AND categories.id = wapendekezanawapendekezwa.categoriesFK AND pendekezaID = '$id'";
-          $nomineeDetails = $con->query($nomineeDetails);
+          $usersDetails = "SELECT * FROM admins WHERE id = '$id'";
+          $usersDetails = $con->query($usersDetails);
 
-            if ($nomineeDetails->num_rows > 0) {
+            if ($usersDetails->num_rows > 0) {
                 echo '<thead>
                 <tr>
-                  <th class="th-sm">NO
-            
-                  </th>
-                  <th class="th-sm">Category
-            
-                  </th>
-                  <th class="th-sm">Company/Institution/Individual
-            
-                  </th>
+                  <th class="th-sm">NO</th>
+                  <th class="th-sm">Name</th>
+                  <th class="th-sm">Phone</th>
+                  <th class="th-sm">Email</th>
                 </tr>
               </thead>
                 ';
@@ -129,16 +124,18 @@ if ($noww > $_SESSION['expire']) {
         <tbody style='color:black'>
           <?php 
             $no = 1;
-            if ($nomineeDetails->num_rows > 0) {
-              while($row = $nomineeDetails->fetch_assoc()) {
-                $category = "{$row['name']}";
-                $pendekezwa = "{$row['companyName']}";				
+            if ($usersDetails->num_rows > 0) {
+              while($row = $usersDetails->fetch_assoc()) {
+                $name = "{$row['name']}";
+                $phone = "{$row['phone']}";
+                $email = "{$row['email']}";				
                 $forLink = json_encode("{$row['id']}");
 
                 echo "<tr>
                 <td>$no</td>
-                <td>$category</td>
-                <td>$pendekezwa</td>
+                <td>$name</td>
+                <td>$phone</td>
+                <td>$email</td>
                 </tr>
                 ";
                 $no++;
@@ -167,7 +164,6 @@ if ($noww > $_SESSION['expire']) {
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
-  <br><br><br><br><br><br>
   <?php echo $adminFooter;?>
 </div>
 <!-- ./wrapper -->

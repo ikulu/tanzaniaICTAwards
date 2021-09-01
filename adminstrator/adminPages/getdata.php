@@ -3,6 +3,7 @@
     <!-- ata table -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    
 </head>
 <?php 
 
@@ -43,7 +44,7 @@ $forLink = 0;
     $result = mysqli_query($con,$sql);
     
     $cls = 'display table table-hover text-nowrap';
-    $id="table_id";
+    $id="tblStocks";
 
     $cardheader = 'card-header';
     $cardtitle = 'card-title';
@@ -57,13 +58,14 @@ $forLink = 0;
     <thead style='color:white'>
     ";
     $num = $result->num_rows;
+    
     if ($result->num_rows > 0) {
-      echo '<tr>
+      echo "<tr>
       <th>No</th>
       <th>Company/Institution/Individual</th>
       <th>Details</th>
       <th>Confirm</th>
-    </tr>';
+    </tr>";
     }
     echo "
     </thead>
@@ -97,40 +99,17 @@ $forLink = 0;
     </tbody>
   </table>";
 ?>
-
 <body>
-<!-- The Modal -->
-<div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">company Heading</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>    
-        <!-- Modal body -->
-        <div class="modal-body">
-          <?php 
-          $x = $_GET['x'];
-          echo $x;
-          ?>
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-        
-      </div>
-    </div>
-  </div>
 
 <!-- sript for ata table -->
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 
 
 <script>
+  function exportData(){
+    alert('clicked');
+  }
+
 $(document).ready( function () {
     $('#table_id').DataTable({
       "pagingType": "full_numbers",

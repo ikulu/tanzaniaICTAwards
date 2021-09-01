@@ -73,8 +73,7 @@ if ($noww > $_SESSION['expire']) {
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-      <div class="card-body table-responsive p-0">
-      <a href="../report/announce_pdf.php" style="color:white; font-size:15px"><i style="color:white; font-size:15px" class="fas fa-print"></i> PRINT</a></br>
+      <div class="card-body table-responsive p-0"></br>
               <table id="table_id" class="display table table-hover text-nowrap">
                 <thead style='color:white'>
                   <?php 

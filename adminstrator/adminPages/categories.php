@@ -82,26 +82,63 @@ if ($noww > $_SESSION['expire']) {
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
   New Category
 </button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter3">
+  New Sector
+</button>
+
 <br><br>
 <table id="data_table" class="table table-striped">
-<thead>
+<!-- <thead> -->
 <tr>
+<th>ID</th>
 <th>Name</th>
 <th>Sector</th>
+<th></th>
 </tr>
-</thead>
-<tbody>
+<!-- </thead> -->
+
 <?php
+function add_or_update_params($url,$key,$value){
+  $a = parse_url($url);
+  $query = $a['query'] ? $a['query'] : '';
+  parse_str($query,$params);
+  $params[$key] = $value;
+  $query = http_build_query($params);
+  $result = '';
+  if($a['path']){
+      $result .=  $a['path'];
+  }
+  if($query){
+      $result .=  '?' . $query;
+  }
+  return $result;
+}
+
+$url1 = '../action.php?moreCategoryUpdate=0';
+$forLink = 0;
+
+$link = '';
+$class = 'class="btn btn-primary"type="button"';
+
 $sql_query = "SELECT categories.id AS cid,categories.name AS cname,sector.name AS sname FROM categories INNER JOIN sector ON sector.id = categories.sectorFK";
 $resultset = mysqli_query($con, $sql_query);
 while( $developer = mysqli_fetch_assoc($resultset) ) {
+  $forLink = $developer["cid"];
+  $url = add_or_update_params($url1,'more',$forLink);
+  $link = 'href="'.$url.'"';
 ?>
-<td><?php echo $developer ['cname']; ?></td>
-<td><?php echo $developer ['sname']; ?></td>
+<tr>
+<td><div><?php echo $developer ['cid']; ?></div></td>
+<td><div><?php echo $developer ['cname']; ?></div></td>
+<td><div><?php echo $developer ['sname']; ?></div></td>
+<?php echo '<td><a '.$link .$class.' >Update</a></td>'?>
 </tr>
-<?php } ?>
-</tbody>
+<?php 
+} ?>
 </table>
+</br>
+</br>
+ 
 
 
 
@@ -140,10 +177,25 @@ while( $developer = mysqli_fetch_assoc($resultset) ) {
       <div class="modal-body">
         <form action="../action.php" method="POST" class="mx-1 mx-md-4">
           <div class="d-flex flex-row align-items-center mb-4">
-            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
             <div class="form-outline flex-fill mb-0">
               <input type="text" name="name" id="form3Example1c" class="form-control" required/>
               <label class="form-label" for="form3Example1c">Category Name</label>
+            </div>
+          </div>
+
+          <div class="d-flex flex-row align-items-center mb-4">
+            <div class="form-outline flex-fill mb-0">
+              <select name="sector" id="form3Example1c" class="form-control">
+                <option disabled selected>-- Select Sector --</option>
+                <?php
+                    $records = mysqli_query($con, "SELECT * From sector");
+                    while($data = mysqli_fetch_array($records))
+                    {
+                        echo "<option value='". $data['id'] ."'>" .$data['name'] ."</option>";
+                    }	
+                ?>  
+              </select>
+              <label class="form-label" for="form3Example1c">Sector</label>
             </div>
           </div>
 
@@ -159,6 +211,53 @@ while( $developer = mysqli_fetch_assoc($resultset) ) {
   </div>
 </div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Register Sector</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="../action.php" method="POST" class="mx-1 mx-md-4">
+          <div class="d-flex flex-row align-items-center mb-4">
+            <div class="form-outline flex-fill mb-0">
+              <input type="text" name="name" id="form3Example1c" class="form-control" required/>
+              <label class="form-label" for="form3Example1c">Sector Name</label>
+            </div>
+          </div>
+
+          <div class="d-flex flex-row align-items-center mb-4">
+            <div class="form-outline flex-fill mb-0">
+              <select name="awards" id="form3Example1c" class="form-control">
+                <option disabled selected>-- Select Award --</option>
+                <?php
+                    $records = mysqli_query($con, "SELECT * From awards");
+                    while($data = mysqli_fetch_array($records))
+                    {
+                        echo "<option value='". $data['id'] ."'>" .$data['name'] ."</option>";
+                    }	
+                ?>  
+              </select>
+              <label class="form-label" for="form3Example1c">Sector</label>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+            <button type="submit" name="saveSector" class="btn btn-primary btn-lg">Register</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="../plugins/jquery/jquery.min.js"></script>
@@ -187,32 +286,21 @@ while( $developer = mysqli_fetch_assoc($resultset) ) {
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 
 <script>
-    $(document).ready( function () {
-      $('#data_table').Tabledit({
+  $(document).ready(function(){
+    $('#data_table').Tabledit({
       deleteButton: false,
       editButton: false,
       columns: {
       identifier: [0, 'id'],
-      editable: [[1, 'name']]
+      editable: [[1, 'cname']]
       },
       hideIdentifier: true,
-      url: 'live_edit.php'
-      });
-
-    $('#table_id').DataTable({
-      "pagingType": "full_numbers",
-      "lengthMenu": [
-        [10, 25, 50, -1],
-        [10, 25, 50, "All"]
-      ],
-      responsive: true,
-        language: {
-          search: "_INPUT_",
-          searchPlaceholder: "Search category",
-        }
+      url: '../../tableEditTools/live_edit.php'
     });
-} );
+  });
+
 </script>
+
 
 </body>
 </html>

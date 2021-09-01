@@ -185,7 +185,8 @@ if ($noww > $_SESSION['expire']) {
           <table id="table_id" class="display table table-striped table-bordered dt-responsive  text-align">
                 <thead style="color:white">
                   <?php 
-                  $sql = "SELECT count(wapendekezanawapendekezwa.pendekezwaID) AS counta,wapendekezanawapendekezwa.categoriesFK,categories.name FROM categories INNER JOIN wapendekezanawapendekezwa ON categories.id = wapendekezanawapendekezwa.categoriesFK GROUP BY wapendekezanawapendekezwa.categoriesFK";
+                   $sql = "SELECT count(wapendekezanawapendekezwa.pendekezwaID) AS counta,wapendekezanawapendekezwa.categoriesFK,categories.name FROM categories INNER JOIN wapendekezanawapendekezwa ON categories.id = wapendekezanawapendekezwa.categoriesFK GROUP BY wapendekezanawapendekezwa.categoriesFK";
+                  //$sql = "SELECT categories.name FROM categories,wapendekezanawapendekezwa";
                   $results = $con->query($sql);
 
                     if ($results->num_rows > 0) {
