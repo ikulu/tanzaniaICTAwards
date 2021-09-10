@@ -79,9 +79,7 @@ if ($noww > $_SESSION['expire']) {
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
-  New Category
-</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">New Category</button>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter3">
   New Sector
 </button>

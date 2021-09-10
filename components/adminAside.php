@@ -76,6 +76,12 @@ $aside = '  <!-- Main Sidebar Container -->
           </a>
         </li>
         <li class="nav-item">
+        <a href="../adminPages/verifiedNominees.php" class="nav-link">
+          <i class="nav-icon far fa-circle text-info"></i>
+          <p>Verified Nominees</p>
+        </a>
+      </li>
+        <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
@@ -97,7 +103,7 @@ $aside = '  <!-- Main Sidebar Container -->
                 </a>
               </li>
             </ul>
-          </li
+          </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

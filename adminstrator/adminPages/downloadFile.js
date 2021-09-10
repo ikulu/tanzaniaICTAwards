@@ -27,7 +27,7 @@
         );
  
         }
-        csvContent = "data:text/csv;charset=utf-8,";
+        csvContent = "data:text/xls;charset=utf-8,";
          /* add the column delimiter as comma(,) and each row splitted by new line character (\n) */
         rows.forEach(function(rowArray){
             row = rowArray.join(",");

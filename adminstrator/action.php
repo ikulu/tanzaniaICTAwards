@@ -2,6 +2,22 @@
 require 'default.php';
 session_start();
 
+$verify = "verify";
+mysqli_query($con, "CREATE TABLE IF NOT EXISTS $verify (
+    id int(200) NOT NULL,
+    name varchar(255) NOT NULL,
+    url varchar(255) DEFAULT NULL,
+    phone varchar(10) NOT NULL,
+    descr varchar(500) NOT NULL,
+    vtime datetime NOT NULL,
+    filee varchar(255) COLLATE utf8_unicode_ci,
+    wapendekezwa_fk int(11) NOT NULL UNIQUE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
+
+mysqli_query($con,"ALTER TABLE $verify ADD PRIMARY KEY (id),ADD KEY pendekezwaID (wapendekezwa_fk);");
+mysqli_query($con,"ALTER TABLE $verify MODIFY id int(200) NOT NULL AUTO_INCREMENT;");
+mysqli_query($con,"ALTER TABLE $verify ADD CONSTRAINT mpendekezwafk_1 FOREIGN KEY (wapendekezwa_fk) REFERENCES wapendekezwa (id);");
+
 // register kampuni zanazopendekezwa
 if(isset($_POST['RegisterCompany'])){
 	$cname = trim($_POST['cname']);
@@ -166,6 +182,12 @@ if(isset($_GET['moreNominees'])){
 	header("Location: ./adminPages/nominatorslistDetails.php?id=$id");
 }
 
+//get verified nominators
+if(isset($_GET['moreVerified'])){
+    $id = $_REQUEST['more'];
+	header("Location: ./adminPages/verifiedNomineesList.php?id=$id");
+}
+
 //Update category
 if(isset($_GET['moreCategoryUpdate'])){
     $id = $_REQUEST['more'];
@@ -270,6 +292,50 @@ if(isset($_POST['changeUserPassword'])){
         echo '<script language="javascript">';
         echo 'alert("Sever is temporal Offline, Please comeback later!");location.href="./adminPages/admnHome.php";';
         echo '</script>';
+    }
+}
+
+if(isset($_POST["verify"])){
+    $t=time();
+    $name = $_POST['name'];
+    $url = $_POST['url'];
+    $phone = $_POST['phone'];
+    $descr = $_POST['descr'];
+    $time = date("Y-m-d",$t);
+    if($_GET['id'] != ''){
+        $wapendekezwaFK = $_GET['id'];
+    }
+    $targetDir = "uploads/";
+    $fileName = basename($_FILES["file"]["name"]);
+    $targetFilePath = $targetDir . $fileName;
+    $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+
+    $allowTypes = array('jpg','png','jpeg','gif','pdf');
+    if(in_array($fileType, $allowTypes)){
+        // Upload file to server
+        if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){
+            // Insert image file name into database
+            $sql = "INSERT INTO verify (name,url,phone,descr,vtime,filee,wapendekezwa_fk) VALUES ('$name','$url','$phone','$descr','$time','$fileName','$wapendekezwaFK')";
+            $inserted = $con->query($sql);
+            if($inserted){
+                echo "done \n<a href='../index.php'>Continue browsing</a>";
+                // echo "<script language='javascript'>";
+                // echo "alert('Congratulations!!\nYou have Successfully Verified');location.href='../confirm/confirm.php';";
+                // echo "</script>";
+            }else{
+                echo "Something went wrong.<a href='../confirm/confirm.php'>Go back</a>";
+                // echo '<script language="javascript">';
+                // echo 'alert("Something went wrong, please come back later.");location.href="../confirm/confirm.php";';
+                // echo '</script>';
+            }        
+        }else{
+            echo "Sorry, there was an error uploading your file.";
+            $statusMsg = "Sorry, there was an error uploading your file.";
+        }
+    }else{
+        $statusMsg = 'Sorry, only JPG, JPEG, PNG, GF, & PDF files are allowed to upload.';
+        echo "<script type='text/javascript'>alert('$statusMsg');</script>";
+        // header("Location: ../confirm/confirm.php");
     }
 }
 ?>

@@ -56,7 +56,7 @@ pioneers of ICT and encouraging excellence.<br><br>
 The Technology Awards are the most comprehensive
 celebration of Technology in the year.
 </p>
-                        <a class="btn btn-primary btn-xl" href="./app/regNominees.php">NOMINATE Now</a>
+                        <button id="btnDisable" class="btn btn-primary btn-xl" href="./app/regNominees.php">NOMINATE Now</button>
                         <br><br>
                         <p id="demo"></p>
                     </div>
@@ -151,7 +151,7 @@ celebration of Technology in the year.
                     </table>
                     <p>For More Information call Us: 0738171742</p>
                     </div>
-                    <a class="btn btn-light btn-xl" href="./app/regNominees.php">Nominate Now!</a>
+                    <button id="btnDisable2" class="btn btn-light btn-xl" href="./app/regNominees.php">Nominate Now!</button>
                 </div>
             </div>
         </section>
@@ -198,9 +198,14 @@ celebration of Technology in the year.
               // If the count down is over, write some text 
               if (distance < 0) {
                 clearInterval(x);
-                document.getElementById("demo").innerHTML = "EXPIRED";
+                document.getElementById("demo").innerHTML = "THE NOMINATION PERIOD IS OVER";
+                document.getElementById("btnDisable").disabled = true;
+                document.getElementById("btnDisable2").disabled = true;
+
               }
             }, 1000);
+
+
             </script>
     </body>
 </html>
