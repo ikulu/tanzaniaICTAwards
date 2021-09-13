@@ -32,7 +32,7 @@ if ($noww > $_SESSION['expire']) {
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
 
   <!--EXCEL DOCUMENT-->
-  <script type="text/javascript" src="downloadFile.js"></script>
+  <script type="text/javascript" src="../build/downloadFile.js"></script>
 
 <!-- ata table -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
@@ -84,13 +84,16 @@ if ($noww > $_SESSION['expire']) {
               <table id="tblStocks" class="display table table-hover text-nowrap">
                 <thead style='color:white'>
                 <?php 
-                  $results = mysqli_query($con, "SELECT wapendekezwa.companyName,categories.name From categories,wapendekezanawapendekezwa,wapendekezwa WHERE categories.id = wapendekezanawapendekezwa.categoriesFK AND wapendekezwa.id = wapendekezanawapendekezwa.pendekezwaID");
+                  $results = mysqli_query($con, "SELECT wapendekezwa.companyName,wapendekezwa.companyAddress,wapendekezwa.contact,wapendekezwa.reason,categories.name From categories,wapendekezanawapendekezwa,wapendekezwa WHERE categories.id = wapendekezanawapendekezwa.categoriesFK AND wapendekezwa.id = wapendekezanawapendekezwa.pendekezwaID");
                   
                     if ($results->num_rows > 0) {
                       echo '<tr>
                       <th>No</th>
                       <th>Full Name</th>
                       <th>Category</th>
+                      <th>Contact Person</th>
+                      <th>Phone</th>
+                      <th>Reason</th>
                       </tr>';
                     }
                   ?>
@@ -100,7 +103,7 @@ if ($noww > $_SESSION['expire']) {
                     $NO = 1;
                     if ($results->num_rows > 0) {
                       while($data = mysqli_fetch_array($results)){
-                        echo "<tr><td>" . $NO. "</td><td>". $data['companyName']."</td><td>". $data['name']."</td>";
+                        echo "<tr><td>" . $NO. "</td><td>". $data['companyName']."</td><td>". $data['name']."</td><td>". $data['companyAddress']."</td><td>". $data['contact']."</td><td>". $data['reason']."</td>";
                         $NO++;
                       }
                     } else {
