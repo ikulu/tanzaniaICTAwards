@@ -833,8 +833,8 @@ if(isset($_POST['mail'])){
             </div>
             <div class="row">
                 <div class="col" style="padding:35px">
-                    <p style="font-size:15px;color:black;text-align:center">We are glad to inform you that you have been nominated into  <b>'.$category.'</b> Category.
-        The initial step is complete, the next step is to verify nominees in each category.
+                    <p style="font-size:15px;color:black;text-align:center">Congratulations you have been nominated for Tanzania ICT Award 2021 as <b>'.$category.'</b>.
+        The initial stage is complete, the next step is to verify nominees in each category.
         Click '.$link.' to verify.</p>
                 </div>
             </div>
