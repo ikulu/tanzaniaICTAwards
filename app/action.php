@@ -16,8 +16,6 @@ if(isset($_POST['getNomination'])){
     $select = mysqli_query($con,"SELECT 'email' FROM wapendekeza WHERE email = '$email'");
 	if(mysqli_num_rows($select)) {
         try {
-            //Server settings
-            // $mail->SMTPDebug = SMTP::DEBUG_SERVER;         
             $mail->isSMTP();                               
             $mail->Host       = 'smtp.gmail.com';     
             $mail->SMTPAuth   = true;                      
@@ -781,7 +779,6 @@ if(isset($_POST['login'])){
 if(isset($_GET['out_admin'])){
 	session_destroy();
 	require('index.php');
-
 }
 //LOG OUT ENDS
 
@@ -794,6 +791,64 @@ if(isset($_GET['moreConfirm'])){
     echo 'alert("Confirmed And Email sent");location.href="../adminstrator/adminPages/norminatedPerCategory.php";';
     echo '</script>';
 	
+}
+
+if(isset($_POST['mail'])){
+    $category = $_GET['category'];
+    $id = $_GET['id'];
+    $results = mysqli_query($con, "SELECT * From wapendekezwa WHERE id = $id");
+    while($data = mysqli_fetch_array($results)){
+        $company = $data['companyName'];
+    }
+    // $company = $_GET['company'];
+    // https://ictawards.ictc.go.tz
+    $link = "<a href='https://ictawards.ictc.go.tz/confirm/confirm.php?company=$company&category=$category&id=$id'>here</a>";
+    $email = $_POST['email'];
+
+    try {
+        $mail->isSMTP();                               
+        $mail->Host       = 'smtp.gmail.com';     
+        $mail->SMTPAuth   = true;                      
+        $mail->Username   = 'clausevee@gmail.com';
+        $mail->Password   = 'nicholaus12345678910';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; //'tls'
+        $mail->Port       = 465;                     
+
+        //Recipients
+        $mail->setFrom('clausevee@gmail.com', 'ICT Awards2021');
+        $mail->addAddress($email, $company);
+    
+        //Content
+        $mail->isHTML(true);                                  //Set email format to HTML
+        $mail->Subject = 'ICT Awards2021 Nominees Verification';
+        $mail->Body    = '<div class="container" style="background-color:#EDDDCB">
+        <div class="" style="background-color:white;margin:0px 200px;">
+            <div class="row">
+                <div class="col-4" style="text-align:center">
+                    <img src="https://ictawards.ictc.go.tz/assets/img/logo2.png" alt="ictc logo">
+                </div>
+            </div>
+            <div class="row" style="padding:20px; color:black; text-align:center">
+                <div class="col" ><h2>Hello! '.$company.'</h2></div>
+            </div>
+            <div class="row">
+                <div class="col" style="padding:35px">
+                    <p style="font-size:15px;color:black;text-align:center">We are glad to inform you that you have been nominated into  <b>'.$category.'</b> Category.
+        The initial step is complete, the next step is to verify nominees in each category.
+        Click '.$link.' to verify.</p>
+                </div>
+            </div>
+        </div>
+      </div>';
+        $mail->send();
+        echo '<script language="javascript">';
+        echo 'alert("Email has been sent");location.href="../adminstrator/adminPages/sendEmail.php";';
+        echo '</script>';
+    }catch (Exception $e){
+        echo $e->errorMessage();
+    }catch (\Exception $e){
+        echo $e->getMessage();
+    }
 }
 ?>
 

@@ -20,7 +20,7 @@ if ($noww > $_SESSION['expire']) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tanzania ICT Awards | Verified Nominees</title>
+  <title>Tanzania ICT Awards | Send Mail</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -32,7 +32,7 @@ if ($noww > $_SESSION['expire']) {
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
 
   <!--EXCEL DOCUMENT-->
-  <script type="text/javascript" src="downloadFile.js"></script>
+  <script type="text/javascript" src="../build/downloadFile.js"></script>
 
 <!-- ata table -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
@@ -60,15 +60,16 @@ if ($noww > $_SESSION['expire']) {
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Verified Nominees</h1>
+            <h1 class="m-0">Send Mails</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="./admnHome.php">Home</a></li>
-              <li class="breadcrumb-item active">Verified Nominees</li>
+              <li class="breadcrumb-item active">Send Mails</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
+        <!-- <a style="cursor:pointer" id="myBtn" class="nav-link">New Company</a> -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -77,45 +78,53 @@ if ($noww > $_SESSION['expire']) {
     <section class="content">
       <div class="container-fluid">
       <div class="card-body table-responsive p-0">
-      <button onclick="exportData()">
-        EXPORT EXCEL
-      </button>
+      
+      
               <table id="tblStocks" class="display table table-hover text-nowrap">
                 <thead style='color:white'>
                 <?php 
-                  $results = mysqli_query($con, "SELECT wapendekezanawapendekezwa.pendekezwaID,verification.name AS vname,verification.url,verification.phone,verification.descr,verification.vtime,categories.name From categories INNER JOIN wapendekezanawapendekezwa ON categories.id = wapendekezanawapendekezwa.categoriesFK INNER JOIN wapendekezwa ON wapendekezwa.id = wapendekezanawapendekezwa.pendekezwaID INNER JOIN verification ON wapendekezwa.id = verification.wapendekezwa_fk");
+                  $results = mysqli_query($con, "SELECT wapendekezwa.id AS pendekezwaID,wapendekezwa.companyName,wapendekezwa.companyAddress,wapendekezwa.contact,wapendekezwa.reason,categories.id,categories.name From categories,wapendekezanawapendekezwa,wapendekezwa WHERE categories.id = wapendekezanawapendekezwa.categoriesFK AND wapendekezwa.id = wapendekezanawapendekezwa.pendekezwaID");
                   
                     if ($results->num_rows > 0) {
                       echo '<tr>
                       <th>No</th>
                       <th>Full Name</th>
-                      <th>Verification Time</th>
                       <th>Category</th>
+                      <th>Contact Person</th>
                       <th>Phone</th>
-                      <th>Description</th>
-                      <th>URL</th>
+                      <th>Reason</th>
+                      <th>Action</th>
                       </tr>';
                     }
                   ?>
                 </thead>
                 <tbody  style='color:black'>
-                <?php
-                  $NO = 1;
-                  $class = 'class="btn btn-primary"type="button"';
+                <?php 
+                    $NO = 1;
+                    $true = true;
                     if ($results->num_rows > 0) {
                       while($data = mysqli_fetch_array($results)){
-                        $time = $data['vtime'];
-                        $forLink = $data["pendekezwaID"];
-                        $phone = $data['phone'];
-                        $descr = $data['descr'];
-                        $url = $data['url'];
-                        echo "<tr><td>" .$NO. "</td><td>". $data['vname']."</td><td>". $time ."</td><td>". $data['name']."</td><td>". $phone."</td><td>". $descr."</td><td>". $url."</td>";
+                        $cname = $data['companyName'];
+                        $category = $data['id'];
+                        $id = $data['pendekezwaID'];
+
+                        $dataID = 'data-id='.$id;
+                        $dataCompany = 'data-company='.$cname;
+                        $dataCategory = 'data-category='.$category;
+
+                        $Send_Mail = "<a class='openModal' data-toggle='modal' data-target='#myModal' $dataCategory $dataCompany $dataID>Send Email</a>";
+                        echo "<tr><td>" . $NO. "</td><td>". $data['companyName']."</td><td>". $data['name']."</td><td>". $data['companyAddress']."</td><td>". $data['contact']."</td><td>". $data['reason']."</td><td>$Send_Mail</td>";
                         $NO++;
                       }
                     } else {
                       echo "<tr><td>No Company nominated</td></tr>";
                     }
                   ?>
+                    <div style="margin-top:5%;" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content"></div>
+                        </div>
+                    </div>
                   </tr>
                 </tbody>
               </table>
@@ -124,6 +133,7 @@ if ($noww > $_SESSION['expire']) {
           </div>
       </div><!--/. container-fluid -->
 
+    
     </section>
     <!-- /.content -->
   </div>
@@ -140,25 +150,6 @@ if ($noww > $_SESSION['expire']) {
 </div>
 <!-- ./wrapper -->
 
-<!-- Modal  tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"-->
-<div class="modal" id="myModal" >
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Register Category</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <?php echo $_GET['id']; ?>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="../plugins/jquery/jquery.min.js"></script>
@@ -216,6 +207,16 @@ window.onclick = function(event) {
 
 
 <script>
+
+  $('.openModal').click(function(){
+      var id = $(this).attr('data-id');
+      var cname = $(this).attr('data-company');
+      var category = $(this).attr('data-category');
+      $.ajax({url:"ajax_modal.php?id="+id+"&cname="+cname+"&category="+category,cache:false,success:function(result){
+        $(".modal-content").html(result);
+      }});
+  });
+
 $(document).ready( function () {
     $('#tblStocks').DataTable({
       "pagingType": "full_numbers",
