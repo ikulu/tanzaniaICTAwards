@@ -60,45 +60,75 @@
 
                 $placeHolder = 'placeholder=""';
                 if($_GET['category'] == 'Best ICT Incubation hub'){
-                    $placeHolder = 'placeholder="How did you support ideas and startup companies with innovation spaces, office spaces, link to funding, and connections into academic environments?"';
+                    $placeHolder = 'placeholder="1.	Successful ideas that the innovation intermediary has supported to be a business
+                    2.	Startups/ innovators supported Successfully entered the market
+                    3.	Number of startups and innovators incubated/ accelerated
+                    4.	Total number of jobs created by startups groomed by your center
+                    "';
                 }elseif($_GET['category'] == 'Best ICT Startup'){
-                    $placeHolder = 'placeholder="What are your software, hardware and social innovation areas? And your distinguished development based on growth, innovation, creativity, functionality, market potential and performance."';
+                    $placeHolder = 'placeholder="1.	Describe your successful ICT solution and its impact;
+                    2.	Amount raised per year
+                    3.	Employment created (both direct and indirect)
+                    "';
                 }elseif($_GET['category'] == 'Best Innovative ICT Student (Female)'){
-                    $placeHolder = 'placeholder="What’s your ICT Innovation, demonstrated passion, commitment and talent in the ICT field?"';
+                    $placeHolder = 'placeholder="1.	Describe an innovative idea of a student;
+                    2.	State prospect potentials of an idea in social and economic aspect
+                    "';
                 }elseif($_GET['category'] == 'Best Innovative ICT Student (Male)'){
-                    $placeHolder = 'placeholder="What’s your ICT Innovation, demonstrated passion, commitment and talent in the ICT field?"';
+                    $placeHolder = 'placeholder="1.1.	Describe an innovative idea of a student;
+                    2.	State prospect potentials of an idea in social and economic aspect
+"';
                 }elseif($_GET['category'] == 'Best Mobile Network Operator'){
-                    $placeHolder = 'placeholder="What development process have you played in corporate social responsibility (CSR)?"';
+                    $placeHolder = 'placeholder="1.	Describe the most successful CSR program your company has supported;
+                    2.	Explain overall outcome of such a CSR program to society;
+                    3.	What percentage of revenue your company allocate for CSR program;
+                    4.	Explain your CSR provision methodology
+                    "';
                 }elseif($_GET['category'] == 'Best Company Providing Services on IT'){
-                    $placeHolder = 'placeholder="Are you an outsourcing IT service provider? What have you provided in the application of business and technical expertise that enabled organizations in the creation, management, and optimization of or access to information and business processes?"';
+                    $placeHolder = 'placeholder="1.	Explain your core outsource business;
+                    2.	State your company contribution in creation of job;
+                    3.	How successful is your company in provision of outsource service? (please quantify)
+                    4.	Your contribution in performance enhancement of organizations your company is serving;
+                    "';
                 }elseif($_GET['category'] == 'Best Company In Software Development'){
-                    $placeHolder = 'placeholder="What software solution have you developed that brought a significant impact to local challenges?"';
+                    $placeHolder = 'placeholder="1.	explain to what extent has company contributed in developing the software industry in Tanzania (please quantify your response);"';
                 }elseif($_GET['category'] == 'Best ICT Transformative Training Institution'){
-                    $placeHolder = 'placeholder="Tell us your achievements and optimum utilization of ICT in the education sector, and what’s your implementation of digital education as an effective tool for learning service?"';
+                    $placeHolder = 'placeholder="1.	Explain your program to transform processes of your institute into digital (it should include using ICT as a tool for management, collaboration, teaching, learning, etc)
+                    2.	Describe outcomes your Institute community has realized in digital transformation (please quantify)
+                    "';
                 }elseif($_GET['category'] == 'Best ICT Transformative Institution In Provision Of Health Services'){
-                    $placeHolder = 'placeholder="Explain the digital tools used to improve your efficiency in delivering health services."';
+                    $placeHolder = 'placeholder="1.	Explain your program to transform processes of your institute into digital (it should include using ICT as a tool for management, collaboration, teaching, learning, etc)
+                    2.	Describe outcomes your Institute community has realized in digital transformation (please quantify)
+                    "';
                 }elseif($_GET['category'] == 'BEST ICT INSTITUTION PROVIDING SERVICES IN FINANCIAL SECTOR'){
-                    $placeHolder = 'placeholder="What’s your innovation that led digital transformation in the financial sector?"';
+                    $placeHolder = 'placeholder="1.	Explain your program to transform processes of your institute into digital (it should include using ICT as a tool for management, collaboration, teaching, learning, etc)
+                    2.	Describe outcomes your Institute community has realized in digital transformation (please quantify)
+                    "';
                 }elseif($_GET['category'] == 'BEST FINANCIAL TECHNOLOGY COMPANY'){
-                    $placeHolder = 'placeholder="What’s your innovation as an agile bank that led digital transformation in the financial sector?"';
+                    $placeHolder = 'placeholder="1.	Describe your successful fintech solution and its impact;
+                    2.	Amount raised per year
+                    3.	Employment created (both direct and indirect)
+                    "';
                 }elseif($_GET['category'] == 'Best Female ICT researcher'){
-                    $placeHolder = 'placeholder="What’s your research work that has contributed to develop or promote the ICT sector in Tanzania?"';
+                    $placeHolder = 'placeholder="1.	Explain your ICT research work and its impact to socio-economic development"';
                 }elseif($_GET['category'] == 'Best Male ICT researcher'){
-                    $placeHolder = 'placeholder="What research have you done as contributions in terms of development or promotion of ICT in Tanzania?"';
+                    $placeHolder = 'placeholder="1.	Explain your ICT research work and its impact to socio-economic development"';
                 }elseif($_GET['category'] == 'Best Company In Digital Insurance Services'){
-                    $placeHolder = 'placeholder="How well have you harnessed technology and digital solutions to improve business processes and digital solutions and leverage overall client experience?"';
+                    $placeHolder = 'placeholder="1.	Explain your program to transform processes of your institute into digital (it should include using ICT as a tool for management, collaboration, teaching, learning, etc)
+                    2.	Describe outcomes your Institute community has realized in digital transformation (please quantify)
+                    "';
                 }elseif($_GET['category'] == 'Best LGA In Using ICT Applications'){
                     $placeHolder = 'placeholder="Explain the tech solutions and digital tools used to improve convenience, efficiency and productivity in your Local government Authority (LGA)."';
                 }elseif($_GET['category'] == 'Best ICT Solution In Agriculture'){
-                    $placeHolder = 'placeholder="Tell us the innovative digital solutions you created for agriculture?"';
+                    $placeHolder = 'placeholder="1.	Explain to what extent has your ICT software impacted development of the agricultural community in Tanzania (please quantify your response);"';
                 }elseif($_GET['category'] == 'Best Artist in Using ICTs For Development'){
-                    $placeHolder = 'placeholder="How do you use social media and ICT in general in production, marketing and distribution of your artistic work and talent development?"';
+                    $placeHolder = 'placeholder="Explain to which extent  have you been using ICT in business processes, management and delivery of your work?"';
                 }elseif($_GET['category'] == 'Best Journalist in Using ICT For Development'){
-                    $placeHolder = 'placeholder="How do you use ICT in production and distribution of professional journalism works to educate the public timely? How do you  frequently use websites, blogs and social networks to promote your work?"';
+                    $placeHolder = 'placeholder="Explain to which extent  have you been using ICT in business processes, management and delivery of your work?"';
                 }elseif($_GET['category'] == 'Best Media House in Using ICT For Development'){
-                    $placeHolder = 'placeholder="Tell us how your media house uses ICT for production and distribution of content."';
+                    $placeHolder = 'placeholder="Explain to which extent  have you been using ICT in business processes, management and delivery of your work?"';
                 }elseif($_GET['category'] == 'Best Ministry on ICT Integration in Sectors Policies Award'){
-                    $placeHolder = 'placeholder="What are the strategies, guidelines, regulations and projects that integrate ICT adoption in respective sectors?
+                    $placeHolder = 'placeholder="Explain how your Ministry has integrated ICT in delivery of sector policies. You should explain projects, guidelines, strategies and legal frameworks related to integration of ICT in your sector
                     "';
                 }
 
